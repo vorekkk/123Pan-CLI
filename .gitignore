@@ -7,6 +7,9 @@
 
 # Python environments, caches and build outputs
 .venv/
+.venv-*/
+.local-test-cache/
+.local-test-data/
 venv/
 __pycache__/
 *.py[cod]

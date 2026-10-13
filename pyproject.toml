@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pan123-cli"
+version = "0.1.0"
+description = "Cross-platform CLI for the official 123Pan OpenAPI"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "httpx>=0.28.1,<0.29",
+  "rich>=13.9,<15",
+  "platformdirs>=4.3,<5",
+  "filelock>=3.16,<4",
+  "python-dotenv>=1.2.2,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.9", "mypy>=1.13", "build>=1.2"]
+
+[project.scripts]
+pan123 = "pan123_cli.cli:main"
+
+[project.urls]
+Repository = "https://github.com/vorekkk/123Pan-CLI"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src/pan123_cli"]
+check_untyped_defs = true
+ignore_missing_imports = true
+no_implicit_optional = true
+

@@ -1,0 +1,3 @@
+include constraints-runtime.txt constraints-dev.txt .env.example
+recursive-include docs *.md *.json
+recursive-include scripts *.py

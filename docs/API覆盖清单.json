@@ -3,7 +3,7 @@
   "document_date": "2026-10-14",
   "timezone": "Asia/Shanghai",
   "project_root": "/Users/vorek/Coding Project/123Pan-CLI",
-  "status": "documentation_only",
+  "status": "implemented_with_partial_real_verification",
   "source_base_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced",
   "source_fetched_at": "2026-09-11T00:58:08.776Z",
   "summary": {
@@ -21,7 +21,13 @@
       "source_paths": [
         "api-source/API列表/直链/IP黑名单配置/ip黑名单列表.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "directlink blacklist list"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要直链权益，未执行真实验证"
     },
     {
       "method": "GET",
@@ -29,7 +35,13 @@
       "source_paths": [
         "api-source/API列表/直链/获取直链流量日志.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "directlink traffic-logs"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要直链权益，未执行真实验证"
     },
     {
       "method": "GET",
@@ -37,7 +49,13 @@
       "source_paths": [
         "api-source/API列表/直链/获取直链离线日志.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "directlink offline-logs"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要直链权益，未执行真实验证"
     },
     {
       "method": "GET",
@@ -45,7 +63,13 @@
       "source_paths": [
         "api-source/API列表/直链/获取直链链接.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "directlink url"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要直链权益，未执行真实验证"
     },
     {
       "method": "GET",
@@ -53,7 +77,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/批量复制文件进度.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file copy-progress"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "只读端点：已实现并离线验证，本轮未纳入真实账户验证"
     },
     {
       "method": "GET",
@@ -61,7 +91,17 @@
       "source_paths": [
         "api-source/API列表/文件管理/文件详情/获取单个文件详情.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file info"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "verified",
+      "real_verification_date": "2026-10-14",
+      "real_verified_commands": [
+        "file info (上传读回校验)"
+      ],
+      "real_verification_evidence": "docs/真实联调记录.md"
     },
     {
       "method": "GET",
@@ -69,7 +109,17 @@
       "source_paths": [
         "api-source/API列表/文件管理/下载.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file download-url"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "verified",
+      "real_verification_date": "2026-10-14",
+      "real_verified_commands": [
+        "file download"
+      ],
+      "real_verification_evidence": "docs/真实联调记录.md"
     },
     {
       "method": "GET",
@@ -77,7 +127,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/文件列表/获取文件列表（旧）.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file list-v1"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "只读端点：已实现并离线验证，本轮未纳入真实账户验证"
     },
     {
       "method": "GET",
@@ -85,7 +141,13 @@
       "source_paths": [
         "api-source/API列表/离线下载/获取离线下载进度.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "offline progress"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需建立真实离线下载任务，未执行真实验证"
     },
     {
       "method": "GET",
@@ -93,7 +155,13 @@
       "source_paths": [
         "api-source/API列表/图床/获取图片信息/获取图片详情.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image info"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "GET",
@@ -101,7 +169,13 @@
       "source_paths": [
         "api-source/API列表/图床/图床离线迁移/获取离线迁移任务.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image offline-progress"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "GET",
@@ -109,7 +183,13 @@
       "source_paths": [
         "api-source/API列表/图床/复制云盘图片/获取复制失败文件列表.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image source-copy-failures"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "GET",
@@ -117,7 +197,13 @@
       "source_paths": [
         "api-source/API列表/图床/复制云盘图片/获取复制任务详情.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image source-copy-progress"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "GET",
@@ -125,7 +211,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/保险箱/解锁保险箱&获取保险箱id.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file safebox-unlock"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "GET",
@@ -133,7 +225,13 @@
       "source_paths": [
         "api-source/API列表/分享管理/获取分享链接列表.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "share list"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要真实分享与付费分享额度/权限，未执行真实验证"
     },
     {
       "method": "GET",
@@ -141,7 +239,13 @@
       "source_paths": [
         "api-source/API列表/分享管理/获取付费分享链接列表.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "share payment list"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要真实分享与付费分享额度/权限，未执行真实验证"
     },
     {
       "method": "GET",
@@ -149,7 +253,17 @@
       "source_paths": [
         "api-source/API列表/用户管理/获取用户信息.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "user info"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "verified",
+      "real_verification_date": "2026-10-14",
+      "real_verified_commands": [
+        "user info"
+      ],
+      "real_verification_evidence": "docs/真实联调记录.md"
     },
     {
       "method": "GET",
@@ -157,7 +271,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/获取视频信息/视频转码列表（三方挂载应用授权使用）.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode list"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "GET",
@@ -167,7 +287,19 @@
         "api-source/API列表/视频转码/上传视频/云盘上传/获取云盘视频文件.md",
         "api-source/API列表/视频转码/获取视频信息/获取转码空间文件列表.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file list",
+        "transcode folder-list",
+        "transcode source-list"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "verified",
+      "real_verification_date": "2026-10-14",
+      "real_verified_commands": [
+        "file list"
+      ],
+      "real_verification_evidence": "docs/真实联调记录.md"
     },
     {
       "method": "GET",
@@ -175,7 +307,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/V2（推荐）/获取上传域名.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v2 domains"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "只读端点：已实现并离线验证，本轮未纳入真实账户验证"
     },
     {
       "method": "POST",
@@ -183,7 +321,17 @@
       "source_paths": [
         "api-source/接入指南/开发者接入/获取access_token.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "auth ensure"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "verified",
+      "real_verification_date": "2026-10-14",
+      "real_verified_commands": [
+        "auth ensure"
+      ],
+      "real_verification_evidence": "docs/真实联调记录.md"
     },
     {
       "method": "POST",
@@ -191,7 +339,13 @@
       "source_paths": [
         "api-source/API列表/直链/IP黑名单配置/开启关闭ip黑名单.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "directlink blacklist switch"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要直链权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -199,7 +353,13 @@
       "source_paths": [
         "api-source/API列表/直链/IP黑名单配置/更新ip黑名单列表.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "directlink blacklist update"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要直链权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -207,7 +367,13 @@
       "source_paths": [
         "api-source/API列表/直链/直链缓存刷新.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "directlink cache-refresh"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要直链权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -215,7 +381,13 @@
       "source_paths": [
         "api-source/API列表/直链/禁用直链空间.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "directlink disable"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要直链权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -223,7 +395,13 @@
       "source_paths": [
         "api-source/API列表/直链/启用直链空间.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "directlink enable"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要直链权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -231,7 +409,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/批量复制文件.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file copy-batch"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -239,7 +423,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/复制单个文件.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file copy"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -247,7 +437,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/文件详情/获取多个文件详情.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file infos"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "只读端点：已实现并离线验证，本轮未纳入真实账户验证"
     },
     {
       "method": "POST",
@@ -255,7 +451,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/移动.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file move"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -263,7 +465,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/还原/从回收站恢复文件.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file recover"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -271,7 +479,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/还原/还原文件到指定目录.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file recover-to"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -279,7 +493,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/重命名/批量文件重命名.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file rename-batch"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -287,7 +507,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/删除/删除文件至回收站.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file trash"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -295,7 +521,14 @@
       "source_paths": [
         "api-source/接入指南/第三方挂载应用接入/授权code获取access_token.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "oauth exchange",
+        "oauth refresh"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要第三方应用资格，未执行真实验证"
     },
     {
       "method": "POST",
@@ -303,7 +536,13 @@
       "source_paths": [
         "api-source/API列表/离线下载/创建离线下载任务.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "offline create"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需建立真实离线下载任务，未执行真实验证"
     },
     {
       "method": "POST",
@@ -311,7 +550,13 @@
       "source_paths": [
         "api-source/API列表/图床/删除图片.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image delete"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -319,7 +564,13 @@
       "source_paths": [
         "api-source/API列表/图床/获取图片信息/获取图片列表.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image list"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -327,7 +578,13 @@
       "source_paths": [
         "api-source/API列表/图床/移动图片.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image move"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -335,7 +592,13 @@
       "source_paths": [
         "api-source/API列表/图床/图床离线迁移/创建离线迁移任务.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image offline-create"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -343,7 +606,13 @@
       "source_paths": [
         "api-source/API列表/图床/复制云盘图片/创建复制任务.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image source-copy"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -351,7 +620,13 @@
       "source_paths": [
         "api-source/API列表/分享管理/创建付费分享链接.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "share payment create"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要真实分享与付费分享额度/权限，未执行真实验证"
     },
     {
       "method": "POST",
@@ -359,7 +634,13 @@
       "source_paths": [
         "api-source/API列表/分享管理/创建分享链接.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "share create"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要真实分享与付费分享额度/权限，未执行真实验证"
     },
     {
       "method": "POST",
@@ -367,7 +648,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/删除视频/删除转码视频.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode delete"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "POST",
@@ -375,7 +662,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/视频文件下载/原文件下载.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode download-url"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "POST",
@@ -383,7 +676,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/视频文件下载/某个视频全部转码文件下载.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode all-download-urls"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "POST",
@@ -391,7 +690,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/获取视频信息/获取转码空间文件夹信息.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode folder-info"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "POST",
@@ -399,7 +704,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/视频文件下载/单个转码文件下载（m3u8或ts）.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode segment-url"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "POST",
@@ -407,7 +718,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/上传视频/云盘上传/从云盘空间上传.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode from-cloud"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "POST",
@@ -415,7 +732,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/视频转码/视频转码操作.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode run"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "POST",
@@ -423,7 +746,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/查询转码信息/查询某个视频的转码记录.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode records"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "POST",
@@ -431,7 +760,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/获取视频信息/获取视频文件可转码的分辨率.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode resolutions"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "POST",
@@ -439,7 +774,13 @@
       "source_paths": [
         "api-source/API列表/视频转码/查询转码信息/查询某个视频的转码结果.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "transcode result"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要转码权益或第三方应用授权，未执行真实验证"
     },
     {
       "method": "POST",
@@ -447,7 +788,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/V1（旧）/创建文件.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v1 create"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -455,7 +802,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/V1（旧）/获取上传地址&上传分片.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v1 url"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "只读端点：已实现并离线验证，本轮未纳入真实账户验证"
     },
     {
       "method": "POST",
@@ -463,7 +816,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/V1（旧）/列举已上传分片（非必需）.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v1 parts"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "只读端点：已实现并离线验证，本轮未纳入真实账户验证"
     },
     {
       "method": "POST",
@@ -471,7 +830,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/创建目录.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file mkdir"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -479,7 +844,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/V1（旧）/异步轮询获取上传结果.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v1 result"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "只读端点：已实现并离线验证，本轮未纳入真实账户验证"
     },
     {
       "method": "POST",
@@ -487,7 +858,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/V1（旧）/上传完毕.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v1 complete"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -495,7 +872,13 @@
       "source_paths": [
         "api-source/API列表/图床/上传图片/创建文件.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image upload-api create"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -503,7 +886,13 @@
       "source_paths": [
         "api-source/API列表/图床/上传图片/获取上传地址&上传分片.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image upload-api get-url"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -511,7 +900,13 @@
       "source_paths": [
         "api-source/API列表/图床/上传图片/创建目录.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image mkdir"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -519,7 +914,13 @@
       "source_paths": [
         "api-source/API列表/图床/上传图片/异步轮询获取上传结果.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image upload-api async-result"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -527,7 +928,13 @@
       "source_paths": [
         "api-source/API列表/图床/上传图片/上传完毕.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "image upload-api complete"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要图床权益，未执行真实验证"
     },
     {
       "method": "POST",
@@ -535,7 +942,18 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/V2（推荐）/创建文件.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v2 create"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "verified",
+      "real_verification_date": "2026-10-14",
+      "real_verified_commands": [
+        "file upload",
+        "file upload-api v2 create"
+      ],
+      "real_verification_evidence": "docs/真实联调记录.md"
     },
     {
       "method": "POST",
@@ -543,7 +961,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/sha1哈希值文件上传.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v2 sha1-reuse"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -551,7 +975,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/V2（推荐）/单步上传.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v2 single"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "POST",
@@ -559,7 +989,18 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/V2（推荐）/上传分片.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v2 slice"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "verified",
+      "real_verification_date": "2026-10-14",
+      "real_verified_commands": [
+        "file upload",
+        "file upload-api v2 slice"
+      ],
+      "real_verification_evidence": "docs/真实联调记录.md"
     },
     {
       "method": "POST",
@@ -567,7 +1008,18 @@
       "source_paths": [
         "api-source/API列表/文件管理/上传/V2（推荐）/上传完毕.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file upload-api v2 complete"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "verified",
+      "real_verification_date": "2026-10-14",
+      "real_verified_commands": [
+        "file upload",
+        "file upload-api v2 complete"
+      ],
+      "real_verification_evidence": "docs/真实联调记录.md"
     },
     {
       "method": "PUT",
@@ -575,7 +1027,13 @@
       "source_paths": [
         "api-source/API列表/文件管理/重命名/单个文件重命名.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "file rename"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "为避免改动用户数据，未对真实账户执行该变更操作"
     },
     {
       "method": "PUT",
@@ -583,7 +1041,13 @@
       "source_paths": [
         "api-source/API列表/分享管理/修改分享链接.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "share update"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要真实分享与付费分享额度/权限，未执行真实验证"
     },
     {
       "method": "PUT",
@@ -591,7 +1055,13 @@
       "source_paths": [
         "api-source/API列表/分享管理/修改付费分享链接.md"
       ],
-      "implementation_status": "not_implemented"
+      "commands": [
+        "share payment update"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "需要真实分享与付费分享额度/权限，未执行真实验证"
     }
   ],
   "sources": [
@@ -2217,5 +2687,29 @@
     "self_hosted_gateway_enabled": false,
     "stoken_enabled": false,
     "appwrite_identity_enabled": false
-  }
+  },
+  "implementation_summary": {
+    "implemented": 72,
+    "not_verified": 64,
+    "verified": 8
+  },
+  "verification_policy": {
+    "implementation_status": "implemented = 官方声明的 method/path 均有 CLI 命令注册，并由 tests/test_catalog.py 与 tests/test_cli.py 覆盖注册、命令帮助与参数校验",
+    "offline_contract_verification": "covered = 该路由已注册且处于离线测试套件范围内（注册、帮助、共享参数校验路径）；精确 wire 形状断言覆盖代表性端点，见 tests/test_catalog.py::test_exact_wire_shapes",
+    "real_verification": "verified = 2026-10-14 在真实 developer 账户的指定测试目录执行并有记录；证据见 docs/真实联调记录.md，其余路由为 not_verified 并附阻塞原因"
+  },
+  "additional_protocols": [
+    {
+      "protocol": "PUT <presignedURL>",
+      "commands": [
+        "file upload-api v1 put",
+        "file upload-api v1 put-slice",
+        "image upload-api put-slice"
+      ],
+      "implementation_status": "implemented",
+      "offline_contract_verification": "covered",
+      "real_verification": "not_verified",
+      "real_verification_blocker": "本轮使用 V2 分片上传；预签名 PUT 未在真实账户执行"
+    }
+  ]
 }

@@ -1,33 +1,59 @@
 # 123Pan CLI
 
-123 云盘开放 API 命令行工具的独立工程。工程目录为 `/Users/vorek/Coding Project/123Pan-CLI`，源码、环境和文档均独立管理。
+直接调用 123 云盘官方 OpenAPI 的独立命令行工具，当前版本 **0.1.0**。支持 Python 3.12+，面向 macOS、Windows、Linux 的 x86_64 / ARM64。
 
-当前阶段：开发文档与完整命令设计已整理，CLI 源码尚未实现；当前不能执行 pan123 或安装发行包。
+已实现官方快照的 **72 个独立 HTTP 接口**及其命令变体，涵盖认证、OAuth、文件管理、分享、离线下载、用户信息、直链、图床、视频转码。普通文件的列表、上传、分片、秒传、下载已完成真实账户验证；其他业务域的真实验证状态见覆盖清单。
 
-## GitHub 仓库
+## 安装
 
-仓库：[vorekkk/123Pan-CLI](https://github.com/vorekkk/123Pan-CLI)，可见性为私有，主分支为 `main`。
+私有仓库需要有访问权限的 GitHub 账号：
 
 ```bash
 git clone https://github.com/vorekkk/123Pan-CLI.git
 cd 123Pan-CLI
+python3 -m venv .venv
+.venv/bin/python -m pip install .
+.venv/bin/pan123 --help
 ```
 
-## 开发文档
+Windows 使用 `py -3 -m venv .venv`，安装和运行命令的前缀分别为 `.venv\Scripts\python.exe` 与 `.venv\Scripts\pan123.exe`。详细的 PowerShell、cmd、pipx、wheel 用法见[安装与使用](./docs/安装与使用.md)。此版本是 Python 包，未提供无需 Python 的独立可执行程序。
 
-- [技术栈与开发文档](./docs/123Pan-CLI技术栈与开发文档.md)：Python、argparse、HTTPX、模块结构、鉴权、缓存、上传、下载、测试与发布。
-- [完整 CLI 命令参考](./docs/CLI完整命令参考.md)：鉴权/OAuth、文件管理、分享、离线下载、用户、直链、图床、视频转码，逐项映射 API 的参数、位置、返回值与约束。
-- [API 覆盖清单](./docs/API覆盖清单.json)：87 篇来源、74 篇接口文档、72 个独立 method/path，记录文档覆盖和后续实现/验收状态。
-- [API 原始来源清单](./docs/api-source/_manifest.json)：实际采集时间为 2026-09-11，原始官方资料快照已随工程独立保存。
+## 开始使用
 
-## 官方直连接入
+将 `.env.example` 复制为 `.env`，在本机填写 `PAN123_CLIENT_ID` / `PAN123_CLIENT_SECRET`。也兼容现有的 `CLIENT_ID` / `CLIENT_SECRET`；凭据文件不会进入 Git。CLI 只读取明确指定的 env-file。
 
-控制接口固定为 `https://open-api.123pan.com`；本机 clientID / clientSecret 获取官方 accessToken，再携带 Bearer / Platform 调用业务 API。上传使用官方返回的 servers / presignedURL，下载使用官方返回的 downloadUrl。调用链路不经过自部署网关，也不生成或使用 stoken / Appwrite JWT。
+```bash
+.venv/bin/pan123 --env-file .env auth ensure
+.venv/bin/pan123 --env-file .env file list --parent-id 0 --all --json
+.venv/bin/pan123 --env-file .env file upload --file './报告.pdf' --parent-id 123456
+.venv/bin/pan123 --env-file .env file download --file-id 123456 --output './报告副本.pdf'
+```
 
-## 开发原则
+示例 ID 需换为自己的目录或文件 ID。`list`、`upload`、`download` 是根命令别名；所有帮助页面均可离线查看。变更命令按帮助要求确认或使用 `--yes`。stdout JSON 便于脚本消费，进度写入 stderr，下载在大小与 MD5 校验通过后才发布正式文件。
 
-开发者凭据留在本机，CLI 直连 `https://open-api.123pan.com`；默认开发者鉴权，第三方限定接口使用单独 OAuth 授权。所有 API 的完整命令已纳入设计，列表、上传、下载优先打通，随后按开发文档完成其他领域。
+控制接口固定为 `https://open-api.123pan.com`；上传、下载连接官方返回的 HTTPS 地址。凭据保存在本机，OAuth 令牌单独管理。
 
-配置、虚拟环境、依赖、源码、测试与构建均在本工程管理。当前交付只包含文档与来源资料；源码布局、安装命令和开发阶段见技术文档，开发与验证均使用本工程独立运行环境。
+若本机代理使用 Fake-IP DNS（198.18.0.0/15），可明确加入 `--allow-fake-ip`，或设置 `PAN123_ALLOW_FAKE_IP=true`。默认仍要求公开 DNS 地址，并保持原始主机的 TLS 证书验证。
 
-文档已标明快照冲突和需要真实账户核验的行为；文档覆盖不等于 API 代码或联调已经完成。
+## 文档
+
+- [安装与使用](./docs/安装与使用.md)：所有平台安装、配置和常用命令。
+- [完整 CLI 命令参考](./docs/CLI完整命令参考.md)：各业务域的输入、API 字段与约束；运行参数以 `--help` 为准。
+- [技术栈与开发文档](./docs/123Pan-CLI技术栈与开发文档.md)：模块、鉴权、传输、测试与发布。
+- [API 覆盖清单](./docs/API覆盖清单.json)：87 篇资料、74 篇接口文档、72 个独立接口的实现与验证状态。
+- [真实联调记录](./docs/真实联调记录.md)及[实施进度](./docs/实施进度.md)。
+- [官方资料快照](./docs/api-source/_manifest.json)：采集于 2026-09-11；配额与权限仍以当前官方和账号返回为准。
+
+## 开发
+
+```bash
+.venv/bin/python -m pip install -e '.[dev]'
+.venv/bin/python -m pytest -q
+.venv/bin/python -m ruff check src tests
+.venv/bin/python -m ruff format --check src tests
+.venv/bin/python -m mypy src/pan123_cli
+.venv/bin/python -m build
+.venv/bin/python scripts/check_wheel.py
+```
+
+GitHub Actions 配置 Python 3.12 / 3.13 / 3.14 的四个操作系统 runner，另有 Linux / Windows ARM64 的手动验证。实际结果见[实施进度](./docs/实施进度.md)。

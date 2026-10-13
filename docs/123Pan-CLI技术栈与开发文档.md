@@ -1,10 +1,10 @@
 # 123Pan CLI 技术栈与开发文档
 
-版本：0.2 · 编写日期：2026-10-14（Asia/Shanghai）· 状态：开发设计，尚未实现 CLI。
+版本：0.3 · 更新日期：2026-10-14（Asia/Shanghai）· 状态：CLI 0.1.0 已实现，核心文件链路真实联调通过。
 
-本文用于指导开发一个直接调用 123 云盘开放 API 的本地命令行工具。用户已确定使用本机 `client_id` / `client_secret` 接入，要求独立工程文件夹，并根据 API 文档设计完整 CLI 命令。列表、上传、下载是优先打通的核心链路，完整交付范围包含文档中的全部 API 能力。下文的命令、源码模块、接口类和验收标准均为拟实施规范；只有“现状与证据”章节描述已存在的代码事实。
+本文用于指导开发一个直接调用 123 云盘开放 API 的本地命令行工具。用户已确定使用本机 `client_id` / `client_secret` 接入，要求独立工程文件夹，并根据 API 文档设计完整 CLI 命令。列表、上传、下载是优先打通的核心链路，完整交付范围包含文档中的全部 API 能力。本文保留设计依据与验收标准，并同步实际实现。具体参数以安装后的 `--help` 为准；来源契约、模拟测试和真实验证分别记录。
 
-CLI 工程目录为 `/Users/vorek/Coding Project/123Pan-CLI`，独立管理源码、虚拟环境、依赖、测试、构建和版本。工程内 `docs/api-source/` 保存全部 API 快照，查阅和开发均以本工程为入口。本次交付仅建立工程文件夹与开发文档，未实现命令代码。
+CLI 工程目录为 `/Users/vorek/Coding Project/123Pan-CLI`，独立管理源码、虚拟环境、依赖、测试、构建和版本。工程内 `docs/api-source/` 保存全部 API 快照，查阅和开发均以本工程为入口。本工程已包含源码、测试、独立虚拟环境、wheel / sdist 和 CI 配置；实际验证见[真实联调记录](./真实联调记录.md)及[实施进度](./实施进度.md)。
 
 API 基线采用本工程 `docs/api-source/` 保存的官方文档快照，其清单记录采集时间为 **2026-09-11 08:58:08（北京时间）**。2026-10-14 尝试读取官方语雀文档未成功，因此本文不把快照中的配额、上传限制和传输行为表述为已核验的现行规则。开发联调时按第 15 节处理这些差异。
 
@@ -46,9 +46,9 @@ API 基线采用本工程 `docs/api-source/` 保存的官方文档快照，其�
 
 目录递归、目录同步、上传并发、多账号 profile、跨进程传输恢复是额外产品能力，不作为现有 API 文档覆盖率的替代项。完整 API 覆盖包括旧版文件列表、V1 上传、V2 单步上传、SHA1 上传以及第三方 OAuth；受授权类型或权益限制的命令也必须列出并明确其运行前提。
 
-### 1.1 拟定的使用方式
+### 1.1 使用方式
 
-以下命令在 CLI 开发并安装后使用；当前仓库尚不能执行 `pan123`。
+以下命令在按[安装与使用](./安装与使用.md)安装并配置凭据后使用。
 
 ```bash
 pan123 --help
@@ -65,18 +65,17 @@ pan123 download --file-id 123456 --output './报告.pdf' --overwrite --yes --jso
 
 ## 2. 独立工程现状与官方契约基线
 
-`123Pan-CLI` 当前包含 README、技术文档、完整命令参考、API 覆盖清单和 87 篇原始资料；源码、pyproject、独立虚拟环境及发行包尚未建立。现阶段已经完成的是可指导开发的完整规格，代码与账户联调按后续阶段实施。
+源码包含 77 个端点/协议命令定义，覆盖官方快照的全部 72 个独立 method/path；同一路径的业务与授权变体分别注册。所有帮助无需网络或凭据。
 
-| 项目 | 已观察事实 / 选型基线 | 开发动作 |
-| --- | --- | --- |
-| API 来源 | 保存的官方快照，共 87 篇，74 篇声明接口、72 个独立 method/path | 逐端点命令与请求 schema 覆盖 |
-| Python | 既有本机环境实测 3.14.7；CLI 最低目标 3.12 | 在独立工程创建 venv 并验证 3.12 / 3.13 / 3.14 |
-| HTTPX | 既有本机环境实测 0.28.1 | 作为候选版本，在独立 CLI 环境验证和约束 |
-| python-dotenv | 既有本机环境实测 1.2.2 | 用于显式 env-file，在独立 CLI 环境验证 |
-| 构建配置 | 当前尚无 pyproject | 新增 CLI 包、命令入口和完整依赖声明 |
-| Git / CI | 独立 Git 仓库已初始化；GitHub 私有仓库为 vorekkk/123Pan-CLI，主分支 main；尚未配置 CI | 实施阶段补充测试与构建工作流 |
-
-上述本机版本来自文档编写时的环境检查，不代表独立 CLI 已安装这些库。全部请求 schema 以官方快照和实施时真实接口行为为依据；本机令牌缓存、HTTP 客户端、模块与错误类型均在本工程实现。
+| 项目 | 当前实现 / 验证 |
+| --- | --- |
+| API 来源 | 87 篇快照、74 篇接口文档；路由与来源页覆盖通过自动校验 |
+| 运行环境 | 独立 `.venv`，本机 macOS ARM64 / Python 3.14.7 |
+| HTTP / 配置 | HTTPX 0.28.1、python-dotenv 1.2.4；兼容范围见 pyproject，精确基线见 constraints |
+| 构建 | pyproject、pan123 入口、wheel 与 sdist；干净虚拟环境安装入口验证通过 |
+| Git / CI | GitHub 私有仓库 vorekkk/123Pan-CLI；多系统 / Python 矩阵见 `.github/workflows/ci.yml` |
+| 真实业务 | 指定目录 33175809 通过：列表、详情、下载、32,789 B 单分片上传、20,971,528 B 两分片上传、秒传，以及底层 `upload-api v2` create/slice/complete 与重复分片拒绝；2026-10-14 两轮联调证据见[真实联调记录](./真实联调记录.md) |
+| 其余领域 | 已实现，模拟契约检查；未执行真实权益/第三方账号验证 |
 
 ## 3. 技术栈与选型理由
 
@@ -101,7 +100,7 @@ pan123 download --file-id 123456 --output './报告.pdf' --overwrite --yes --jso
 
 `argparse` 的子命令与自动帮助能力见 [Python 3.12 文档](https://docs.python.org/3.12/library/argparse.html)。HTTPX 的同步客户端、上传与下载能力见 [Client 文档](https://www.python-httpx.org/advanced/clients/) 和 [QuickStart](https://www.python-httpx.org/quickstart/)。终端进度使用 [Rich Progress](https://rich.readthedocs.io/en/stable/progress.html)，并显式将进度控制台绑定到 stderr。
 
-**版本管理规则：**HTTPX 0.28.1 和 python-dotenv 1.2.2 是已观察到的候选基线。其余新增依赖在编码时解析与验证，再记录精确版本及传递依赖；本文不声称它们已安装或经过兼容测试。`pyproject.toml` 声明兼容区间，发布另存经过验证的依赖约束文件，运行时依赖与开发依赖分别管理。
+**版本管理规则：**独立环境验证后的精确基线记录在 constraints-runtime.txt / constraints-dev.txt；本机验证不是其他平台的执行证据。`pyproject.toml` 声明兼容区间，发布另存经过验证的依赖约束文件，运行时依赖与开发依赖分别管理。
 
 ### 3.2 为什么采用这套方案
 
@@ -113,7 +112,7 @@ pan123 download --file-id 123456 --output './报告.pdf' --overwrite --yes --jso
 
 首版使用同步串行传输：一个命令处理一个文件，同一时间发送一个分片。连接复用和流式 I/O 已能满足功能需求；上传并发、跨进程恢复和独立可执行文件需要额外服务端行为验证，再单独扩展。
 
-完整命令树按领域注册到 argparse，基础阶段就保留全部规范命令的注册结构；尚未实现的命令显式报告不可用，最终交付时全部必须完成。查询和异步 API 多，不等于要使用 asyncio；不同端点的 HTTP 方法、字段位置和状态机由元数据及适配器决定。
+完整命令树按领域注册到 argparse；端点、字段、授权模式与协议特殊处理由 catalog.py 和服务层实现。查询和异步 API 多，不等于要使用 asyncio；不同端点的 HTTP 方法、字段位置和状态机由元数据及适配器决定。
 
 ### 3.3 独立运行方式
 
@@ -124,52 +123,31 @@ CLI 在用户终端运行，通过 HTTPS 调用官方开放平台。安装只解
 使用 `/Users/vorek/Coding Project/123Pan-CLI` 作为工程根目录，只以本工程文件为构建输入；独立虚拟环境和依赖约束用于验证。
 
 ```text
-Coding Project/
-├── 123Pan/                         # 已有工程；仅作目录位置说明
-└── 123Pan-CLI/                     # 独立 CLI 工程
-    ├── README.md                   # 本次建立
-    ├── docs/                       # 本次建立
-    │   ├── 123Pan-CLI技术栈与开发文档.md
-    │   ├── CLI完整命令参考.md
-    │   ├── API覆盖清单.json
-    │   └── api-source/             # 87 篇 API / 指南快照与 manifest
-    ├── pyproject.toml              # 以下代码与构建文件为拟新增
-    ├── constraints-dev.txt
-    ├── constraints-runtime.txt
-    ├── src/
-    │   └── pan123_cli/
-    │       ├── __init__.py
-    │       ├── __main__.py
-    │       ├── cli.py               # 参数解析、调度、退出码
-    │       ├── config.py            # 配置合并与验证
-    │       ├── auth.py              # TokenManager
-    │       ├── cache.py             # 文件锁、原子缓存写入
-    │       ├── client.py            # API 与上传 HTTP 客户端
-    │       ├── models.py            # 类型与 wire 字段映射
-    │       ├── errors.py            # 统一错误
-    │       ├── output.py            # 表格、JSON、进度
-    │       ├── services/
-    │       │   ├── listing.py
-    │       │   ├── uploading.py
-    │       │   └── downloading.py
-    │       │   # 完整 API 阶段新增 sharing/offline/directlink/image/transcode
-    │       ├── commands/           # 完整命令树、端点元数据与输入规范
-    │       └── utils/
-    │           ├── files.py         # 文件名、MD5、发布文件
-    │           └── urls.py          # URL 和重定向检查
-    └── tests/
-        ├── test_config.py
-        ├── test_auth.py
-        ├── test_client.py
-        ├── test_list.py
-        ├── test_upload.py
-        ├── test_download.py
-        └── test_cli.py
+123Pan-CLI/
+├── README.md
+├── docs/                       # 技术/命令文档、覆盖、联调、87 篇来源
+├── pyproject.toml
+├── MANIFEST.in
+├── constraints-dev.txt
+├── constraints-runtime.txt
+├── .env.example
+├── .github/workflows/ci.yml
+├── scripts/check_wheel.py
+├── src/pan123_cli/
+│   ├── __init__.py / __main__.py
+│   ├── cli.py / catalog.py      # 命令调度、字段 schema 与 wire 映射
+│   ├── config.py / auth.py / cache.py
+│   ├── client.py / errors.py / output.py
+│   ├── services/
+│   │   ├── listing.py / sharing.py
+│   │   └── uploading.py / downloading.py
+│   └── utils/files.py / urls.py
+└── tests/                      # 命令、配置、鉴权、catalog、传输与输出
 ```
 
 包只导出 `pan123_cli`，wheel / sdist 不包含 `.env`、缓存、临时文件或本地下载。API 快照作为开发文档保留，默认不进入 wheel 运行时代码。
 
-以下 TOML 是拟新增配置中的入口片段，不是完整可构建配置：
+以下是已实现 pyproject.toml 的入口片段；完整依赖与工具配置见工程文件：
 
 ```toml
 [project]
@@ -221,23 +199,11 @@ flowchart TD
 
 服务层接受注入的客户端、时钟、sleep 和进度回调。测试可替换 Transport 与等待函数，不通过生产命令增加任意上游域名参数。
 
-### 5.3 内部模型与适配方法
+### 5.3 内部数据与适配方法
 
-| 内部类型 | 核心字段 | 用途 |
-| --- | --- | --- |
-| `Credentials` | `client_id`、`client_secret` | secret 字段不参与 repr，不序列化输出 |
-| `Settings` | 配置路径、超时、分页大小、展示参数 | 默认值集中定义 |
-| `TokenRecord` | `access_token`、`expires_at`、`credential_fingerprint`、`schema_version` | 缓存记录，绝不当作用户输出 |
-| `FileInfo` | `file_id`、`filename`、`type`、`size`、`etag`、`parent_file_id`、`status`、`trashed` | 列表与详情统一模型 |
-| `ListPage` | `items`、`next_cursor` | 保留原始游标 |
-| `UploadSession` | `preupload_id`、`slice_size`、`servers` | 分片阶段临时状态 |
-| `UploadResult` | `file_id`、`filename`、`size`、`md5`、`reused`、`verified` | 终端 / JSON 输出 |
-| `DownloadResult` | `file_id`、`output_path`、`size`、`md5`、`verified` | 成功完成下载 |
-| `Pan123Error` | `kind`、`message`、`http_status`、`api_code`、`trace_id`、`retryable`、`details` | 保留可排查的信息 |
+实现使用 `Settings` dataclass、`Field` / `Endpoint` dataclass、受保护的 token / session JSON 记录与服务结果字典。错误统一为 `Pan123Error`；wire 数据在 catalog 与服务边界校验，保留官方字段大小写。无需单独的 models.py 或 commands 目录。
 
-拟定的 API 客户端方法：`list_page(parent_file_id, limit, cursor, search)`、`file_detail(file_id)`、`download_info(file_id)`、`create_upload(parent_file_id, filename, md5, size, duplicate)`、`upload_slice(server, session, slice_no, slice_md5, fileobj)`、`complete_upload(preupload_id)`。接口层显式映射 wire 字段，不把内部 snake_case 直接发给上游。
-
-全 API 阶段增加端点注册表，记录 method、path、参数位置、鉴权模式、schema variant、响应类型和可重试语义。同一个 `/api/v2/file/list` 在普通列表、视频源列表、转码空间列表中的文档参数不完全相同，合并传输实现时仍保留各命令的 category / businessType / searchMode 变体，不因 method+path 相同丢掉额外字段。图床 ID、任务 ID 与普通 file ID 分别建模，避免强制转换。
+`ApiClient.request()` 接受 method、path 和 params / json；特殊方法处理 multipart、单步上传、外部 PUT 与 CDN 流。catalog.py 管理命令、字段位置、ID 类型、固定业务字段和重试性质。同一个 `/api/v2/file/list` 的普通文件、视频源和转码空间变体分别保留筛选条件。
 
 ## 6. 配置、凭据与本机目录
 
@@ -246,6 +212,8 @@ flowchart TD
 普通设置按“命令参数 → 进程环境 → 显式 `--env-file` → JSON 配置文件 → 内置默认值”合并。必填项缺失、空字符串凭据、无效 JSON 或未知配置键均明确失败，不静默回退。
 
 `client_secret` 从 `PAN123_CLIENT_SECRET`、用户显式指定的环境文件，或认证命令的 `--client-secret-stdin` 读取；不提供接收 secret 值的 `--client-secret` 参数，不写入普通 JSON 配置文件。`client_id` 可以从环境、环境文件、JSON 配置或相应认证命令的 --client-id 读取。两者视为完整凭据对，来源和账户指纹在加载后统一计算，避免重用旧账户 token。
+
+开发者凭据同时兼容 `CLIENT_ID` / `CLIENT_SECRET`。同一来源明确提供 PAN123 名称时以该名称为准（空值仍报错）；高优先级进程来源的别名可覆盖低优先级 env-file。
 
 默认不搜索当前工作目录中的 `.env`。用户希望使用现有环境文件时，必须明确传入 `--env-file`；进程环境仍优先于该文件。环境文件只解析所需变量，忽略本 CLI schema 未声明的变量，不把整个文件内容写入日志。
 
@@ -662,7 +630,7 @@ auth clear 只清理本机对应模式 / 账户的缓存，不能宣称已经注
 
 ## 14. 开发任务与交付顺序
 
-完整交付目标是文档中所有 API 都有对应可用命令；下面的阶段是实现依赖顺序，不减少完整命令范围。当前仅完成文档与目录准备，各阶段源码均未实现。
+完整交付目标是文档中所有 API 都有对应可用命令；下面的阶段是实现依赖顺序，不减少完整命令范围。各阶段代码已经实现；当前执行证据和仍未进行的真实验证列于实施进度。
 
 | 阶段 | 实现工作 | 交付物 | 验收门槛 |
 | --- | --- | --- | --- |
@@ -689,9 +657,9 @@ python3 -m json.tool docs/api-source/_manifest.json
 rg -n 'open-api.123pan.com|Authorization|Platform' docs/api-source/接入指南/开发者接入/开发须知.md
 ```
 
-### 14.2 未来开发环境操作
+### 14.2 开发环境操作
 
-以下流程在 CLI 源码、完整 pyproject 和依赖约束文件新增后执行；**当前只有文档，因此现在执行安装步骤不会得到可运行 CLI**。
+以下流程在独立工程执行；使用 constraints 可重建本机验证的依赖基线。
 
 ```bash
 cd '/Users/vorek/Coding Project/123Pan-CLI'
@@ -765,7 +733,7 @@ Windows 同一流程用 `.venv\Scripts\python.exe`。测试仅从独立工程运
 7. 模拟中断与失败，检查 `.part`、旧目标文件、退出码和错误信息。
 8. 如需清理测试文件，使用明确的测试 ID 范围执行回收站命令，不扩大清理范围。
 
-真实测试会产生云盘文件和下载流量，只在用户已指定的测试范围内实施。当前文档工作未执行任何账户 API 或云盘写入，不提供虚构的“联调通过”结论。
+真实测试会产生云盘文件和下载流量，只在用户已指定的测试范围内实施。2026-10-14 第一轮已完成小文件、跨分片文件与秒传上传及完整下载，在指定目录创建三个测试文件；第二轮复核了原始 HTTP/业务 code/trace_id，并补做 32,789 B 单分片上传、秒传、下载字节校验、底层 `upload-api v2` create/slice/complete 会话流程与重复分片拒绝，另在指定目录创建三个测试文件。两轮证据、命令与未验证清单见[真实联调记录](./真实联调记录.md)。真实目录多页、搜索、同名覆盖、真实中断及其余业务域仍待专门验证。
 
 ### 16.3 全 API 验收
 
@@ -777,20 +745,20 @@ Windows 同一流程用 `.venv\Scripts\python.exe`。测试仅从独立工程运
 
 | 环境 | 验证目标 |
 | --- | --- |
-| macOS arm64 | 独立虚拟环境安装、help、中文路径、缓存权限、文件传输 |
-| Linux x86_64 | wheel 安装、非交互 JSON、目录权限、文件提交原语 |
-| Windows x86_64 | 命令入口、UTF-8、保留名称、ACL、长路径、文件替换 |
+| macOS ARM64 / x86_64 | 独立环境安装、help、中文路径、缓存权限、文件传输 |
+| Linux x86_64 / ARM64 | wheel 安装、非交互 JSON、目录权限、文件提交原语 |
+| Windows x86_64 / ARM64 | 命令入口、UTF-8、保留名称、ACL、文件替换；系统长路径策略另行检查 |
 | Python 3.12 / 3.13 / 3.14 | 单元/契约测试、导入与安装；避免无保护使用仅新版本存在的 argparse 参数 |
 
 构建后在干净环境安装 wheel，测试 `pan123 --help`、`python -m pan123_cli --help`，检查 wheel 内容不含凭据和缓存。发布版本与 JSON schema 分别管理；新增可选字段可以兼容增加，重命名或删除输出字段需要升级 schema 或保持别名。
 
-采用 Ruff 执行 lint / format 检查，规则配置见 [Ruff 文档](https://docs.astral.sh/ruff/)。独立 Git 与 GitHub 私有仓库已建立，主分支为 main；CI 在源码和测试就绪后配置，当前尚无可用 pipeline。公开包发布前核查名字、许可与账号权限；当前交付为开发文档，不上传发行包。
+采用 Ruff 执行 lint / format 检查，规则配置见 [Ruff 文档](https://docs.astral.sh/ruff/)。独立 Git 与 GitHub 私有仓库已建立，主分支为 main；CI 已配置自动四系统 × 三 Python 版本矩阵，以及手动 Linux / Windows ARM64 矩阵，实际运行状态见实施进度。公开包发布前核查名字、许可与账号权限；当前交付源码、wheel / sdist 构建能力与本机产物，未发布公共 PyPI 包。
 
 ## 17. 证据、判断与开发路径
 
 | 证据 ID | 已观察来源 | 判断 | 对应开发路径 |
 | --- | --- | --- | --- |
-| E01 | 独立工程 README、文档与已记录本机版本 | 工程和完整规格已建立；代码尚未实施 | 独立 CLI 最小依赖与构建 |
+| E01 | 独立工程 README、文档与已记录本机版本 | 独立源码、依赖、测试与发行构建已实现 | 独立 CLI 最小依赖与构建 |
 | E02 | 用户接入要求与官方开发须知 | 所有控制请求直连 open-api.123pan.com，使用官方 Bearer / Platform | 官方 token、官方业务域名和返回的传输 URL |
 | E03 | API manifest 与 developer token / 须知 | 需凭据、本地复用、按 expiredAt 刷新 | 本机缓存、时区、跨进程锁 |
 | E04 | 推荐文件列表页 | cursor=-1 结束、包含 trashed、搜索全局 | 分页和过滤规则 |
@@ -799,7 +767,7 @@ Windows 同一流程用 `.venv\Scripts\python.exe`。测试仅从独立工程运
 | E07 | 全部 87 篇 API / 指南页 | 全业务域需独立命令；部分参数位置或类型存在差异 | 完整命令参考和逐端点适配 |
 | E08 | Python / HTTPX / PyPA 官方库文档 | 所选语言工具具备命令、流、打包能力 | 模块契约和独立包构建 |
 
-E01 是当前工程与环境观察，E02 是用户确认的接入要求及来源契约；E03—E07 是历史官方快照事实，不代表当前平台行为已经实测；E08 支持库能力选型，也不等于具体 CLI 已经通过测试。
+E01 是当前工程与环境观察；E02 是用户接入要求；E03—E07 是历史官方快照契约。仅真实联调记录中列出的行为已获当前账号验证，其他来源行为仍不能作为真实使用证据。
 
 核心调用路径为：命令参数 → 配置校验 → 缓存或获取 token → 对应 API 适配器 → 业务流程 → 完整性与状态核验 → 结果 / 退出码。全 API 注册路径为：来源文档 → 精确端点契约 → 命令参数 schema → 请求和响应适配 → 契约测试 → 真实联调记录。
 
@@ -823,6 +791,14 @@ E01 是当前工程与环境观察，E02 是用户确认的接入要求及来源
 
 官方文档入口为 [123 云盘开放平台语雀文档](https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced)。本文引用 API 页以保存的快照为依据；外部库选择则使用各项目官方文档。更新快照时保留旧版本来源，重新生成覆盖清单并审查 method、path、参数位置、字段类型、权限、配额与结果状态的变化。
 
-技术文档与实现一起维护：新增命令同时新增 schema、API 覆盖记录、帮助和契约测试；命令参考不使用“文档已写好”代替“代码已可用”。当前交付状态为文档完成与待开发，源码测试、跨平台安装和真实 API 验收留待实施阶段执行。
+技术文档与实现一起维护：新增命令同时新增 schema、API 覆盖记录、帮助和契约测试；命令参考不使用“文档已写好”代替“代码已可用”。当前交付状态为 CLI 0.1.0 已实现；测试、安装与真实验收按实施进度和覆盖清单记录，不把路由覆盖或模拟测试视为所有业务域真实通过。
 
 
+
+## 19. 0.1.0 实施补充
+
+- 普通上传的本地保守上限为 10,000,000,000 字节，V2 单步为 1,000,000,000 字节；这是对快照模糊 GB 单位的本地策略，不代表实测官方极限。
+- 默认传输 DNS 必须是公开地址，解析结果用于实际连接；Host / TLS SNI 保留原始 HTTPS 主机。当前本机代理采用 198.18.0.0/15 Fake-IP，需要显式 `--allow-fake-ip` / `PAN123_ALLOW_FAKE_IP=true`。该选项仅放开这一解析地址段，仍拒绝 URL 中的私网 IP，并验证原域名证书。
+- OAuth 被上游拒绝时保留可刷新的令牌对，显式运行 oauth refresh；有响应结果未知的刷新不会盲目重发。
+- 低级上传会话以文件锁串行执行读、校验、网络请求与记录写回；不提供跨进程断点恢复承诺。
+- 所有原始来源快照保持不变；权利、额度、超大文件、第三方授权和文档冲突仍需对应账号实测。
