@@ -532,6 +532,8 @@ flowchart TD
 
 文件名和上游 message 均按普通文本输出，过滤终端控制字符，不解释 Rich markup 或 ANSI 控制序列。JSON 使用 UTF-8、`ensure_ascii=False`，保留数据本身，不把终端展示清理后的名称写回 API。
 
+启动时把 stdout / stderr 重配置为 UTF-8（`errors="replace"`，Windows 控制台本就使用 Unicode API）：中文帮助、中文文件名和中文错误在 ANSI 代码页管线下必须仍能写出，不能因为编码异常把成功命令变成退出码 2。该行为由 `tests/test_cli.py::test_legacy_windows_encoding_cannot_break_help_or_json_output` 用 `PYTHONIOENCODING=cp1252` 子进程覆盖。
+
 ### 12.2 成功与失败 JSON
 
 下面展示拟定输出结构；数值与路径为示例，不是实测结果。列表、上传、下载使用规范化 data；其余端点可以保留 API data 的原始字段大小写，由命令参考明确输出字段。

@@ -208,6 +208,24 @@ def _read_json(path: str) -> Any:
         raise Pan123Error("INVALID_ARGUMENT", "请求文件必须是有效 UTF-8 JSON", exit_code=2) from exc
 
 
+def _use_utf8_streams() -> None:
+    """Write UTF-8 even when the platform default is a legacy code page.
+
+    Windows pipes default to the ANSI code page, where printing Chinese help or
+    a JSON filename raises UnicodeEncodeError (a ValueError) and turns a
+    successful command into exit code 2. Consoles and test capture streams keep
+    working because reconfiguration is best effort.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is None:
+            continue
+        try:
+            reconfigure(encoding="utf-8", errors="replace")
+        except (OSError, ValueError):
+            continue
+
+
 def _confirm(options, command, required=False):
     if not required or options.get("yes"):
         return
@@ -479,6 +497,7 @@ def execute(options: Mapping[str, Any]) -> Any:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    _use_utf8_streams()
     args = list(sys.argv[1:] if argv is None else argv)
     json_mode = "--json" in args
     command: tuple[str, ...] = ()

@@ -224,3 +224,42 @@ def test_oauth_mode_from_env_file_satisfies_endpoint_requirement(capsys, monkeyp
 def test_auth_request_file_is_not_silently_ignored(capsys):
     assert main()(["auth", "ensure", "--request-file", "ignored.json", "--json"]) == 2
     assert json.loads(capsys.readouterr().out)["error"]["kind"] == "INVALID_ARGUMENT"
+
+
+def _run_cli(arguments, environment):
+    import os
+    import subprocess
+    import sys
+    from pathlib import Path
+
+    source = Path(__file__).resolve().parents[1] / "src"
+    return subprocess.run(
+        [sys.executable, "-m", "pan123_cli", *arguments],
+        capture_output=True,
+        check=False,
+        env={**os.environ, "PYTHONPATH": str(source), **environment},
+    )
+
+
+def test_legacy_windows_encoding_cannot_break_help_or_json_output(tmp_path):
+    # Windows pipes default to the ANSI code page; Chinese help text and JSON
+    # messages must still be written as UTF-8 instead of failing the command.
+    legacy = {"PYTHONIOENCODING": "cp1252"}
+    helped = _run_cli(["--help"], legacy)
+    assert helped.returncode == 0, helped.stderr
+    assert "云盘" in helped.stdout.decode("utf-8")
+    refused = _run_cli(
+        [
+            "file",
+            "download",
+            "--file-id",
+            "1",
+            "--output",
+            str(tmp_path / "out.bin"),
+            "--overwrite",
+            "--json",
+        ],
+        legacy,
+    )
+    assert refused.returncode == 2
+    assert "需要 --yes" in refused.stdout.decode("utf-8")
