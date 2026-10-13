@@ -15,6 +15,7 @@ from typing import Any
 from dotenv import dotenv_values
 from platformdirs import user_cache_dir, user_config_dir
 
+from .cache import owner_uid
 from .errors import Pan123Error
 
 APP_NAME = "123pan-cli"
@@ -182,11 +183,8 @@ def load_settings(
             cache_path = Path(cache_value).expanduser().absolute()
             if cache_path.is_symlink() or (cache_path.exists() and not cache_path.is_dir()):
                 raise ValueError
-            if (
-                os.name == "posix"
-                and cache_path.exists()
-                and cache_path.stat().st_uid != os.getuid()
-            ):
+            uid = owner_uid()
+            if uid is not None and cache_path.exists() and cache_path.stat().st_uid != uid:
                 raise ValueError
             parent = cache_path
             while not parent.exists() and parent != parent.parent:

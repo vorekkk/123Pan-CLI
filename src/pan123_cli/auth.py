@@ -5,7 +5,6 @@ from __future__ import annotations
 import hashlib
 import hmac
 import logging
-import os
 import secrets
 from collections.abc import Iterator, Mapping
 from contextlib import contextmanager
@@ -18,7 +17,7 @@ from urllib.parse import urlencode, urlsplit
 import httpx
 from filelock import FileLock, Timeout
 
-from .cache import _private_directory, read_private_json, write_private_json
+from .cache import _private_directory, owner_uid, read_private_json, write_private_json
 from .config import Settings
 from .errors import Pan123Error, redact_sensitive
 
@@ -71,8 +70,9 @@ class TokenManager:
     def _lock(self, path: Path) -> Iterator[None]:
         try:
             _private_directory(path.parent)
-            if os.name == "posix":
-                if path.parent.stat().st_uid != os.getuid():
+            uid = owner_uid()
+            if uid is not None:
+                if path.parent.stat().st_uid != uid:
                     raise Pan123Error(
                         "LOCAL_IO", "The cache directory is not owned by the current user."
                     )

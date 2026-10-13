@@ -7,9 +7,27 @@ import os
 import stat
 import tempfile
 from pathlib import Path
-from typing import Any
+from typing import Any, BinaryIO
 
 from .errors import Pan123Error
+
+
+def owner_uid() -> int | None:
+    """Return this process's user ID, or None where the platform has none.
+
+    ``os.getuid`` only exists on POSIX platforms, so both the check and its
+    callers guard on this value instead of on ``os.name``. The indirection also
+    keeps platform-specific stubs (mypy running on Windows) type-checkable.
+    """
+    getuid = getattr(os, "getuid", None)
+    return int(getuid()) if getuid is not None else None
+
+
+def set_private_file_mode(handle: BinaryIO) -> None:
+    """Restrict an open file to its owner where the platform supports it."""
+    fchmod = getattr(os, "fchmod", None)
+    if fchmod is not None:
+        fchmod(handle.fileno(), 0o600)
 
 
 def _private_directory(path: Path) -> None:
@@ -33,16 +51,17 @@ def write_private_json(path: Path, data: Any) -> None:
         if path.is_symlink():
             raise Pan123Error("io", "Private storage cannot use a symbolic link.")
         _private_directory(path.parent)
-        if path.exists() and (
-            not path.is_file() or (os.name == "posix" and path.stat().st_uid != os.getuid())
-        ):
-            raise Pan123Error("io", "The private storage file is not owned by the current user.")
+        if path.exists():
+            uid = owner_uid()
+            if not path.is_file() or (uid is not None and path.stat().st_uid != uid):
+                raise Pan123Error(
+                    "io", "The private storage file is not owned by the current user."
+                )
         encoded = json.dumps(data, ensure_ascii=False, allow_nan=False).encode("utf-8")
         fd, name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
         temporary = Path(name)
         with os.fdopen(fd, "wb") as handle:
-            if os.name == "posix":
-                os.fchmod(handle.fileno(), 0o600)
+            set_private_file_mode(handle)
             handle.write(encoded)
             handle.flush()
             os.fsync(handle.fileno())
@@ -77,7 +96,8 @@ def read_private_json(path: Path) -> Any:
             if not stat.S_ISREG(information.st_mode):
                 raise Pan123Error("io", "Private storage must be a regular file.")
             if os.name == "posix":
-                if information.st_uid != os.getuid():
+                uid = owner_uid()
+                if uid is not None and information.st_uid != uid:
                     raise Pan123Error("io", "Private storage is not owned by the current user.")
                 if information.st_mode & 0o077:
                     raise Pan123Error(
