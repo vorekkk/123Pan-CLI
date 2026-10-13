@@ -1,0 +1,32 @@
+# Local credentials and environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python environments, caches and build outputs
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Runtime state and incomplete downloads
+token_cache.json
+token-*.json
+token-*.lock
+oauth-state-*.json
+*.part
+*.part.*
+
+# macOS metadata
+.DS_Store

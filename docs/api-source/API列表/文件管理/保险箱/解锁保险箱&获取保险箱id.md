@@ -1,0 +1,118 @@
+# 解锁保险箱&获取保险箱id
+
+API： GET 域名 + /api/v1/safebox/id
+
+## Header 参数
+
+| 名称 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| Authorization | string | 必填 | 鉴权access_token |
+| Platform | string | 必填 | 固定为:open_platform |
+
+## Body 参数
+
+| 名称 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| password | string | 必填 | 保险箱密码 |
+
+## 返回数据
+
+| 名称 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| fileId | number | 必填 | 保险箱文件 id |
+
+## 示例
+
+**请求示例**
+
+```shell
+curl --location 'https://open-api.123pan.com/api/v1/safebox/id?password=1234' \
+--header 'Content-Type: application/json' \
+--header 'Platform: open_platform' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJl...(过长省略)' \
+```
+
+```java
+OkHttpClient client = new OkHttpClient().newBuilder()
+.build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, "");
+Request request = new Request.Builder()
+.url("https://open-api.123pan.com/api/v1/safebox/id?password=1234")
+.method("GET", body)
+.addHeader("Content-Type", "application/json")
+.addHeader("Platform", "open_platform")
+.addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJl...(过长省略)")
+.build();
+Response response = client.newCall(request).execute();
+```
+
+```javascript
+var settings = {
+  "url": "https://open-api.123pan.com/api/v1/safebox/id?password=1234",
+  "method": "GET",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "application/json",
+    "Platform": "open_platform",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJl...(过长省略)"
+  },
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```javascript
+const axios = require('axios');
+
+let config = {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://open-api.123pan.com/api/v1/safebox/id?password=1234',
+  headers: { 
+    'Content-Type': 'application/json', 
+    'Platform': 'open_platform', 
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJl...(过长省略)'
+  }
+};
+
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
+```
+
+```python
+import http.client
+import json
+
+conn = http.client.HTTPSConnection("open-api.123pan.com")
+payload = ''
+headers = {
+    'Content-Type': 'application/json',
+    'Platform': 'open_platform',
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJl...(过长省略)'
+}
+conn.request("GET", "/api/v1/safebox/id?password=1234", payload, headers)
+res = conn.getresponse()
+data = res.read()
+print(data.decode("utf-8"))
+```
+
+**响应示例**
+
+```json
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "fileId": 14663228
+  },
+  "x-traceID": "f2956737-e3a7-4d18-b165-10c347ca6a5e_kong-db-5898fdd8c6-t5pvc"
+}
+```

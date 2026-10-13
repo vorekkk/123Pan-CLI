@@ -1,0 +1,2221 @@
+{
+  "schema_version": 1,
+  "document_date": "2026-10-14",
+  "timezone": "Asia/Shanghai",
+  "project_root": "/Users/vorek/Coding Project/123Pan-CLI",
+  "status": "documentation_only",
+  "source_base_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced",
+  "source_fetched_at": "2026-09-11T00:58:08.776Z",
+  "summary": {
+    "source_documents": 87,
+    "api_spec_documents": 74,
+    "unique_declared_method_paths": 72,
+    "source_documents_covered": 87,
+    "uncovered_source_documents": [],
+    "coverage_scope": "Declared method/path specs plus authorization, workflow and guide source pages; dynamic presigned PUT/CDN GET are separately documented protocols."
+  },
+  "unique_api_routes": [
+    {
+      "method": "GET",
+      "path": "/api/v1/developer/config/forbide-ip/list",
+      "source_paths": [
+        "api-source/API列表/直链/IP黑名单配置/ip黑名单列表.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/direct-link/log",
+      "source_paths": [
+        "api-source/API列表/直链/获取直链流量日志.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/direct-link/offline/logs",
+      "source_paths": [
+        "api-source/API列表/直链/获取直链离线日志.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/direct-link/url",
+      "source_paths": [
+        "api-source/API列表/直链/获取直链链接.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/file/async/copy/process",
+      "source_paths": [
+        "api-source/API列表/文件管理/批量复制文件进度.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/file/detail",
+      "source_paths": [
+        "api-source/API列表/文件管理/文件详情/获取单个文件详情.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/file/download_info",
+      "source_paths": [
+        "api-source/API列表/文件管理/下载.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/file/list",
+      "source_paths": [
+        "api-source/API列表/文件管理/文件列表/获取文件列表（旧）.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/offline/download/process",
+      "source_paths": [
+        "api-source/API列表/离线下载/获取离线下载进度.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/oss/file/detail",
+      "source_paths": [
+        "api-source/API列表/图床/获取图片信息/获取图片详情.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/oss/offline/download/process",
+      "source_paths": [
+        "api-source/API列表/图床/图床离线迁移/获取离线迁移任务.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/oss/source/copy/fail",
+      "source_paths": [
+        "api-source/API列表/图床/复制云盘图片/获取复制失败文件列表.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/oss/source/copy/process",
+      "source_paths": [
+        "api-source/API列表/图床/复制云盘图片/获取复制任务详情.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/safebox/id",
+      "source_paths": [
+        "api-source/API列表/文件管理/保险箱/解锁保险箱&获取保险箱id.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/share/list",
+      "source_paths": [
+        "api-source/API列表/分享管理/获取分享链接列表.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/share/payment/list",
+      "source_paths": [
+        "api-source/API列表/分享管理/获取付费分享链接列表.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/user/info",
+      "source_paths": [
+        "api-source/API列表/用户管理/获取用户信息.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/video/transcode/list",
+      "source_paths": [
+        "api-source/API列表/视频转码/获取视频信息/视频转码列表（三方挂载应用授权使用）.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/file/list",
+      "source_paths": [
+        "api-source/API列表/文件管理/文件列表/获取文件列表（推荐）.md",
+        "api-source/API列表/视频转码/上传视频/云盘上传/获取云盘视频文件.md",
+        "api-source/API列表/视频转码/获取视频信息/获取转码空间文件列表.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "GET",
+      "path": "/upload/v2/file/domain",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/V2（推荐）/获取上传域名.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/access_token",
+      "source_paths": [
+        "api-source/接入指南/开发者接入/获取access_token.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/developer/config/forbide-ip/switch",
+      "source_paths": [
+        "api-source/API列表/直链/IP黑名单配置/开启关闭ip黑名单.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/developer/config/forbide-ip/update",
+      "source_paths": [
+        "api-source/API列表/直链/IP黑名单配置/更新ip黑名单列表.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/direct-link/cache/refresh",
+      "source_paths": [
+        "api-source/API列表/直链/直链缓存刷新.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/direct-link/disable",
+      "source_paths": [
+        "api-source/API列表/直链/禁用直链空间.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/direct-link/enable",
+      "source_paths": [
+        "api-source/API列表/直链/启用直链空间.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/file/async/copy",
+      "source_paths": [
+        "api-source/API列表/文件管理/批量复制文件.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/file/copy",
+      "source_paths": [
+        "api-source/API列表/文件管理/复制单个文件.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/file/infos",
+      "source_paths": [
+        "api-source/API列表/文件管理/文件详情/获取多个文件详情.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/file/move",
+      "source_paths": [
+        "api-source/API列表/文件管理/移动.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/file/recover",
+      "source_paths": [
+        "api-source/API列表/文件管理/还原/从回收站恢复文件.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/file/recover/by_path",
+      "source_paths": [
+        "api-source/API列表/文件管理/还原/还原文件到指定目录.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/file/rename",
+      "source_paths": [
+        "api-source/API列表/文件管理/重命名/批量文件重命名.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/file/trash",
+      "source_paths": [
+        "api-source/API列表/文件管理/删除/删除文件至回收站.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/oauth2/access_token",
+      "source_paths": [
+        "api-source/接入指南/第三方挂载应用接入/授权code获取access_token.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/offline/download",
+      "source_paths": [
+        "api-source/API列表/离线下载/创建离线下载任务.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/oss/file/delete",
+      "source_paths": [
+        "api-source/API列表/图床/删除图片.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/oss/file/list",
+      "source_paths": [
+        "api-source/API列表/图床/获取图片信息/获取图片列表.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/oss/file/move",
+      "source_paths": [
+        "api-source/API列表/图床/移动图片.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/oss/offline/download",
+      "source_paths": [
+        "api-source/API列表/图床/图床离线迁移/创建离线迁移任务.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/oss/source/copy",
+      "source_paths": [
+        "api-source/API列表/图床/复制云盘图片/创建复制任务.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/share/content-payment/create",
+      "source_paths": [
+        "api-source/API列表/分享管理/创建付费分享链接.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/share/create",
+      "source_paths": [
+        "api-source/API列表/分享管理/创建分享链接.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transcode/delete",
+      "source_paths": [
+        "api-source/API列表/视频转码/删除视频/删除转码视频.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transcode/file/download",
+      "source_paths": [
+        "api-source/API列表/视频转码/视频文件下载/原文件下载.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transcode/file/download/all",
+      "source_paths": [
+        "api-source/API列表/视频转码/视频文件下载/某个视频全部转码文件下载.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transcode/folder/info",
+      "source_paths": [
+        "api-source/API列表/视频转码/获取视频信息/获取转码空间文件夹信息.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transcode/m3u8_ts/download",
+      "source_paths": [
+        "api-source/API列表/视频转码/视频文件下载/单个转码文件下载（m3u8或ts）.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transcode/upload/from_cloud_disk",
+      "source_paths": [
+        "api-source/API列表/视频转码/上传视频/云盘上传/从云盘空间上传.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transcode/video",
+      "source_paths": [
+        "api-source/API列表/视频转码/视频转码/视频转码操作.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transcode/video/record",
+      "source_paths": [
+        "api-source/API列表/视频转码/查询转码信息/查询某个视频的转码记录.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transcode/video/resolutions",
+      "source_paths": [
+        "api-source/API列表/视频转码/获取视频信息/获取视频文件可转码的分辨率.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transcode/video/result",
+      "source_paths": [
+        "api-source/API列表/视频转码/查询转码信息/查询某个视频的转码结果.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/file/create",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/V1（旧）/创建文件.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/file/get_upload_url",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/V1（旧）/获取上传地址&上传分片.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/file/list_upload_parts",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/V1（旧）/列举已上传分片（非必需）.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/file/mkdir",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/创建目录.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/file/upload_async_result",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/V1（旧）/异步轮询获取上传结果.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/file/upload_complete",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/V1（旧）/上传完毕.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/oss/file/create",
+      "source_paths": [
+        "api-source/API列表/图床/上传图片/创建文件.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/oss/file/get_upload_url",
+      "source_paths": [
+        "api-source/API列表/图床/上传图片/获取上传地址&上传分片.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/oss/file/mkdir",
+      "source_paths": [
+        "api-source/API列表/图床/上传图片/创建目录.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/oss/file/upload_async_result",
+      "source_paths": [
+        "api-source/API列表/图床/上传图片/异步轮询获取上传结果.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v1/oss/file/upload_complete",
+      "source_paths": [
+        "api-source/API列表/图床/上传图片/上传完毕.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v2/file/create",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/V2（推荐）/创建文件.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v2/file/sha1_reuse",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/sha1哈希值文件上传.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v2/file/single/create",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/V2（推荐）/单步上传.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v2/file/slice",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/V2（推荐）/上传分片.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "POST",
+      "path": "/upload/v2/file/upload_complete",
+      "source_paths": [
+        "api-source/API列表/文件管理/上传/V2（推荐）/上传完毕.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/file/name",
+      "source_paths": [
+        "api-source/API列表/文件管理/重命名/单个文件重命名.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/share/list/info",
+      "source_paths": [
+        "api-source/API列表/分享管理/修改分享链接.md"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/share/list/payment/info",
+      "source_paths": [
+        "api-source/API列表/分享管理/修改付费分享链接.md"
+      ],
+      "implementation_status": "not_implemented"
+    }
+  ],
+  "sources": [
+    {
+      "manifest_index": 1,
+      "title": "概述",
+      "source_path": "api-source/简介/概述.md",
+      "source_sha256": "a476a965cb456b79b2bcbec756df0f24260166d7597c98d957da25cd54907d19",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ppsuasz6rpioqbyt",
+      "kind": "guide",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 2,
+      "title": "更新记录",
+      "source_path": "api-source/简介/更新记录.md",
+      "source_sha256": "7fd672e1fbb77e4602bd9124255b6309851627185a2347a2d59f396de9d591b2",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ewgaoswrngr1amb1",
+      "kind": "guide",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 3,
+      "title": "接入流程",
+      "source_path": "api-source/接入指南/开发者接入/接入流程.md",
+      "source_sha256": "7438c1918fd6b2e67332635298692bb7d11ece5adeb1a07273b1da158d88edb5",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/hpengmyg32blkbg8",
+      "kind": "guide",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 4,
+      "title": "开发须知",
+      "source_path": "api-source/接入指南/开发者接入/开发须知.md",
+      "source_sha256": "ff748c7fe9f29eb8770bb782525aea2a3477fb79ea416c25d7ab304d7fc7f6ff",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/txgcvbfgh0gtuad5",
+      "kind": "guide",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 5,
+      "title": "获取access_token",
+      "source_path": "api-source/接入指南/开发者接入/获取access_token.md",
+      "source_sha256": "4463cfce2fab349dd7465b28e8e9bc841257384ad225c85980ef46480e909360",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/gn1nai4x0v0ry9ki",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/access_token",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.1 `auth ensure / auth status / auth clear",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 6,
+      "title": "授权须知",
+      "source_path": "api-source/接入指南/第三方挂载应用接入/授权须知.md",
+      "source_sha256": "122ae39afdc397d8f0396eb9ac4892a126fd5cac6807f3d16c47ffcde26a0f43",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/kf05anzt1r0qnudd",
+      "kind": "guide",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 7,
+      "title": "授权地址",
+      "source_path": "api-source/接入指南/第三方挂载应用接入/授权地址.md",
+      "source_sha256": "4867f816a98bb1971f4486f6d47b09c4929ded10b3597937be0b5ff2e5e0bfdb",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/gr7ggimkcysm18ap",
+      "kind": "authorization_page",
+      "method": "GET",
+      "path": "https://yun.123pan.com/auth",
+      "target_kind": "browser_authorization",
+      "reference_sections": [
+        "A.2 `oauth authorize-url",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 8,
+      "title": "授权code获取access_token",
+      "source_path": "api-source/接入指南/第三方挂载应用接入/授权code获取access_token.md",
+      "source_sha256": "dda16133bb5603c5dbfb07652443862c44441a1c939f768fffa48c7eabbb7202",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/gammzlhe6k4qtwd9",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/oauth2/access_token",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.3 `oauth exchange / oauth refresh",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 9,
+      "title": "优秀实践",
+      "source_path": "api-source/接入指南/优秀实践.md",
+      "source_sha256": "61720b1d6730dfca27905fa4a31d7126a9d2c4b4fb4cde777800010b53771000",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/gg705bew0t80ccse",
+      "kind": "guide",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 10,
+      "title": "💡常见问题",
+      "source_path": "api-source/接入指南/💡常见问题.md",
+      "source_sha256": "7a9ce7db95f97c298613e90eaa0713117f07edfc1737772c812e35748fa2deb9",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ghfd4h0l6c6y6oi8",
+      "kind": "guide",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 11,
+      "title": "创建目录",
+      "source_path": "api-source/API列表/文件管理/上传/创建目录.md",
+      "source_sha256": "9034174526f510e8021573729ec3351116b3911240b860d9f009c175d023b7d7",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ouyvcxqg3185zzk4",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/file/mkdir",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.8 `file mkdir",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 12,
+      "title": "💡上传流程说明",
+      "source_path": "api-source/API列表/文件管理/上传/V1（旧）/💡上传流程说明.md",
+      "source_sha256": "d197c06e0e0f3a2785e771f0bc7298e7dda895ea920100297d8c0fb2d2e0bc4f",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/il16qi0opiel4889",
+      "kind": "workflow",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "A.40 高层上传工作流及兼容流程",
+        "A.41 本节来源覆盖清单",
+        "transcode folder-info / upload / from-cloud"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 13,
+      "title": "创建文件",
+      "source_path": "api-source/API列表/文件管理/上传/V1（旧）/创建文件.md",
+      "source_sha256": "09b3346591935c770e3a9a311bdf8e4d5e712a774c46d102e321b7b07ed18117",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/lrfuu3qe7q1ul8ig",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/file/create",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.20 `file upload-api v1 create",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 14,
+      "title": "获取上传地址&上传分片",
+      "source_path": "api-source/API列表/文件管理/上传/V1（旧）/获取上传地址&上传分片.md",
+      "source_sha256": "1022651288af078a9d7469dad04bd177437dd51a0cc5445298f7fb1cdaaadcff",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/sonz9n085gnz0n3m",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/file/get_upload_url",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.21 `file upload-api v1 url / file upload-api v1 put",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 15,
+      "title": "列举已上传分片（非必需）",
+      "source_path": "api-source/API列表/文件管理/上传/V1（旧）/列举已上传分片（非必需）.md",
+      "source_sha256": "9dff5cd0b79cfbedc80adb11cc8eba2ecd7839bc6107aa1dfe22738c49e9f4a5",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/dd28ws4bfn644cny",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/file/list_upload_parts",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.22 `file upload-api v1 parts",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 16,
+      "title": "上传完毕",
+      "source_path": "api-source/API列表/文件管理/上传/V1（旧）/上传完毕.md",
+      "source_sha256": "b30f3c60cd1a12bfdebe0d8d0dd87041203a256287a98671ea1a89896fc6d722",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/hkdmcmvg437rfu6x",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/file/upload_complete",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.23 `file upload-api v1 complete",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 17,
+      "title": "异步轮询获取上传结果",
+      "source_path": "api-source/API列表/文件管理/上传/V1（旧）/异步轮询获取上传结果.md",
+      "source_sha256": "d37986b4fb3007fae0a68f199435ef6cced65718c6853cd167bd9a4269a8461e",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/qgcosr6adkmm51h7",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/file/upload_async_result",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.24 `file upload-api v1 result",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 18,
+      "title": "💡上传流程说明",
+      "source_path": "api-source/API列表/文件管理/上传/V2（推荐）/💡上传流程说明.md",
+      "source_sha256": "f3f68fffa733373e13909d7f6e91e832d2ee338ab80df669399a444828ba8248",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/xogi45g7okqk7svr",
+      "kind": "workflow",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "A.40 高层上传工作流及兼容流程",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 19,
+      "title": "创建文件",
+      "source_path": "api-source/API列表/文件管理/上传/V2（推荐）/创建文件.md",
+      "source_sha256": "17669d738538a3a62355abd46cc8dfff8869a3361a2fb2a302ec411817ea09c1",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/txow0iqviqsgotfl",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v2/file/create",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.25 `file upload-api v2 create",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 20,
+      "title": "上传分片",
+      "source_path": "api-source/API列表/文件管理/上传/V2（推荐）/上传分片.md",
+      "source_sha256": "f9902c523a281215152d3bb3c4c770e38633fe8eb559fe5e9c78d74e957040b5",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/scs8yg89yz8immus",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v2/file/slice",
+      "target_kind": "returned_upload_server",
+      "reference_sections": [
+        "A.26 `file upload-api v2 slice",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 21,
+      "title": "上传完毕",
+      "source_path": "api-source/API列表/文件管理/上传/V2（推荐）/上传完毕.md",
+      "source_sha256": "79dd254185c9806665d2d5cea72ced38585a35bbe16dc929d8147fd8e5a0e9c6",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/fzzc5o8gok517720",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v2/file/upload_complete",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.27 `file upload-api v2 complete",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 22,
+      "title": "获取上传域名",
+      "source_path": "api-source/API列表/文件管理/上传/V2（推荐）/获取上传域名.md",
+      "source_sha256": "25d9c55d80cf77d791d50df67980435693e19aa3ba1fc8a21514d2ca2c8aa082",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/agn8lolktbqie7p9",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/upload/v2/file/domain",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.28 `file upload-api v2 domains",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 23,
+      "title": "单步上传",
+      "source_path": "api-source/API列表/文件管理/上传/V2（推荐）/单步上传.md",
+      "source_sha256": "c8eeb4e5b62002e64e1a9b492c798212082c32c03a9a3afc33bf65119ff489c0",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/xhiht1uh3yp92pzc",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v2/file/single/create",
+      "target_kind": "returned_upload_server",
+      "reference_sections": [
+        "A.29 `file upload-api v2 single",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 24,
+      "title": "sha1哈希值文件上传",
+      "source_path": "api-source/API列表/文件管理/上传/sha1哈希值文件上传.md",
+      "source_sha256": "cdaeb609d88a21f21ff69ed3c76213951ea46b3d3e5b0b10c94b37ef2c60bce4",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/de0et33ct3uhdfqs",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v2/file/sha1_reuse",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.30 `file upload-api v2 sha1-reuse",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 25,
+      "title": "单个文件重命名",
+      "source_path": "api-source/API列表/文件管理/重命名/单个文件重命名.md",
+      "source_sha256": "f0516fd2a87f700afdd0974e2689e7fa8d369490952c35c1d9797561dd51231f",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ha6mfe9tteht5skc",
+      "kind": "api_spec",
+      "method": "PUT",
+      "path": "/api/v1/file/name",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.9 `file rename",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 26,
+      "title": "批量文件重命名",
+      "source_path": "api-source/API列表/文件管理/重命名/批量文件重命名.md",
+      "source_sha256": "99b73a6e52959641fa42cb16823d34f4721827ddce27e7f62040c8101216bb14",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/imhguepnr727aquk",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/file/rename",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.10 `file rename-batch",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 27,
+      "title": "删除文件至回收站",
+      "source_path": "api-source/API列表/文件管理/删除/删除文件至回收站.md",
+      "source_sha256": "e406cdcd6fd68ef93a913d9b4230ab4e6eb6cea3fd611ba691f20d1580d5c18c",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/en07662k2kki4bo6",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/file/trash",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.11 `file trash",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 28,
+      "title": "复制",
+      "source_path": "api-source/API列表/文件管理/复制.md",
+      "source_sha256": "ca3138117b92aa9e8837ba461541afe304b8442258813abe5ccec8f65c8e581c",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/bh1q00065hg305al",
+      "kind": "guide",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 29,
+      "title": "复制单个文件",
+      "source_path": "api-source/API列表/文件管理/复制单个文件.md",
+      "source_sha256": "be62d8abce82ec293f6161fb6b75d0da406a63a4d9087cd407e2100274ff0d07",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/thpz0w9er500pob9",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/file/copy",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.12 `file copy",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 30,
+      "title": "批量复制文件",
+      "source_path": "api-source/API列表/文件管理/批量复制文件.md",
+      "source_sha256": "a49e72a6c534b01c294a8dc93f6d3237378e657345f9bc226f3f500bfe1d5c9a",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/pik0i4lvxw4lkkc7",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/file/async/copy",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.13 `file copy-batch",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 31,
+      "title": "批量复制文件进度",
+      "source_path": "api-source/API列表/文件管理/批量复制文件进度.md",
+      "source_sha256": "0ff643b48337f0bf488d0b560053315b01e984c31d741bfa366ddead42d02196",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/fqh9vk1esg4uomly",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/file/async/copy/process",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.14 `file copy-progress",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 32,
+      "title": "从回收站恢复文件",
+      "source_path": "api-source/API列表/文件管理/还原/从回收站恢复文件.md",
+      "source_sha256": "0360da9061d18f86ab24e04392606ae4be43c8a887ff7f38d3e82335cbbe11d4",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/kx9f8b6wk6g55uwy",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/file/recover",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.15 `file recover",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 33,
+      "title": "还原文件到指定目录",
+      "source_path": "api-source/API列表/文件管理/还原/还原文件到指定目录.md",
+      "source_sha256": "104375c0e013eb8be4da9a3c69d3205685fb37a6517c66a256699e9ec760fbc7",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/cl24atug2sviq12z",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/file/recover/by_path",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.16 `file recover-to",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 34,
+      "title": "获取单个文件详情",
+      "source_path": "api-source/API列表/文件管理/文件详情/获取单个文件详情.md",
+      "source_sha256": "f201c1c922e82f8d4479c76efa7969866a65d26459dab7f127608886f704fad9",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/owapsz373dzwiqbp",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/file/detail",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.6 `file info",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 35,
+      "title": "获取多个文件详情",
+      "source_path": "api-source/API列表/文件管理/文件详情/获取多个文件详情.md",
+      "source_sha256": "f10cbc2c682f26cca0262e85c14bd16c3b970b94b1b7ae712c78c75ec34663d7",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/cqqayfuxybegrlru",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/file/infos",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.7 `file infos",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 36,
+      "title": "获取文件列表（推荐）",
+      "source_path": "api-source/API列表/文件管理/文件列表/获取文件列表（推荐）.md",
+      "source_sha256": "7bb9d44f73be225886023aba42d501cbcfefdf47836515134314938194a636e5",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/zrip9b0ye81zimv4",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v2/file/list",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.4 `file list（推荐 V2）",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 37,
+      "title": "获取文件列表（旧）",
+      "source_path": "api-source/API列表/文件管理/文件列表/获取文件列表（旧）.md",
+      "source_sha256": "a9fb9d19b0d7f6b9d5ac6dccd0a25c574fab54886a7a420d61808b8207f764cd",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/hosdqqax0knovnm2",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/file/list",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.5 `file list --api-version v1（兼容）",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 38,
+      "title": "解锁保险箱&获取保险箱id",
+      "source_path": "api-source/API列表/文件管理/保险箱/解锁保险箱&获取保险箱id.md",
+      "source_sha256": "8dcd8ba464c3d1ccf83a05691a9a5ee21ae7b6f6171e98b5441f183d0886de46",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/wlodo76wc10c5v37",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/safebox/id",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.18 `file safebox-unlock",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 39,
+      "title": "移动",
+      "source_path": "api-source/API列表/文件管理/移动.md",
+      "source_sha256": "3386852d7a86a594641b7860e87620fa47380299df759ce348dc5d5d790cb41c",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/rsyfsn1gnpgo4m4f",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/file/move",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.17 `file move",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 40,
+      "title": "下载",
+      "source_path": "api-source/API列表/文件管理/下载.md",
+      "source_sha256": "017c68799bc0d80554688225b902bc2cba349201ca52667fc7e5d1b886d60cb3",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/fnf60phsushn8ip2",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/file/download_info",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.19 `file download（高层工作流）",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 41,
+      "title": "创建分享链接",
+      "source_path": "api-source/API列表/分享管理/创建分享链接.md",
+      "source_sha256": "4c83d314baf7480eae74e5e8159b47536a161a2082a5d66f58cb1b2062fa97d8",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/gzco1pi656ha792z",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/share/create",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.31 `share create",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 42,
+      "title": "获取分享链接列表",
+      "source_path": "api-source/API列表/分享管理/获取分享链接列表.md",
+      "source_sha256": "a3bb8c2c3d63137d305f33b012f2994fdf8f2d1ea159cfb0c1b4ac9b4dc04040",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/wyb121eub7cq6lym",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/share/list",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.32 `share list",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 43,
+      "title": "修改分享链接",
+      "source_path": "api-source/API列表/分享管理/修改分享链接.md",
+      "source_sha256": "058c16bfbfcf8678c74406809961be76f750866f8e6c5689bac915869b796d36",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/tanghycrgh9istqr",
+      "kind": "api_spec",
+      "method": "PUT",
+      "path": "/api/v1/share/list/info",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.33 `share update",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 44,
+      "title": "创建付费分享链接",
+      "source_path": "api-source/API列表/分享管理/创建付费分享链接.md",
+      "source_sha256": "5b8327a7571a8deee001723ef4384f2922fe4245a96a96d7075b48b3910964e2",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/wmlt71asp6ymbrfq",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/share/content-payment/create",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.34 `share payment create",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 45,
+      "title": "获取付费分享链接列表",
+      "source_path": "api-source/API列表/分享管理/获取付费分享链接列表.md",
+      "source_sha256": "7ad13df6dd099959ca8a471def0dcc2b0683159c67151107ce01590dd3afe13f",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/mxc7eq2x3la72mwg",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/share/payment/list",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.35 `share payment list",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 46,
+      "title": "修改付费分享链接",
+      "source_path": "api-source/API列表/分享管理/修改付费分享链接.md",
+      "source_sha256": "7f0c57f2174492b16f4e0cbfc0c8e8c3dd14a510a8dc4896774b60b632d83144",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/euz8kc7fcyye496g",
+      "kind": "api_spec",
+      "method": "PUT",
+      "path": "/api/v1/share/list/payment/info",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.36 `share payment update",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 47,
+      "title": "创建离线下载任务",
+      "source_path": "api-source/API列表/离线下载/创建离线下载任务.md",
+      "source_sha256": "65360716de55a7a98a9ce9cde2a1512725dfd11b0466eb9014eb8d7ea5605184",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/he47hsq2o1xvgado",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/offline/download",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.37 `offline create",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 48,
+      "title": "获取离线下载进度",
+      "source_path": "api-source/API列表/离线下载/获取离线下载进度.md",
+      "source_sha256": "cf9c32231b8caaa0c4068b433ac140cc890b4cdfc5efaf4f6a5aad008302db07",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/sclficr3t655pii5",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/offline/download/process",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.38 `offline progress",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 49,
+      "title": "获取用户信息",
+      "source_path": "api-source/API列表/用户管理/获取用户信息.md",
+      "source_sha256": "088da9c866c80e68108be207317d47cf19a44019aec9de2076318fa71c84608d",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/zgf9gyh7gvmdl4a3",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/user/info",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "A.39 `user info",
+        "A.41 本节来源覆盖清单"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 50,
+      "title": "开启关闭ip黑名单",
+      "source_path": "api-source/API列表/直链/IP黑名单配置/开启关闭ip黑名单.md",
+      "source_sha256": "2dd77e98556ae7a72508628cfa7c69a52c7818dce2a8b2d5c8b95cf4f0e1fc05",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/xwx77dbzrkxquuxm",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/developer/config/forbide-ip/switch",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "directlink blacklist list / update / switch"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 51,
+      "title": "更新ip黑名单列表",
+      "source_path": "api-source/API列表/直链/IP黑名单配置/更新ip黑名单列表.md",
+      "source_sha256": "bc0e21bb24fe8c35fff3681d9b68abcb7b235fb42c1294569f4a8df65650dc8a",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/tt3s54slh87q8wuh",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/developer/config/forbide-ip/update",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "directlink blacklist list / update / switch"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 52,
+      "title": "ip黑名单列表",
+      "source_path": "api-source/API列表/直链/IP黑名单配置/ip黑名单列表.md",
+      "source_sha256": "e6aa92256e7f4ed5b670fa75045cb0d6fd6e4539a9ed40b136202bb004d0b640",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/mxldrm9d5gpw5h2d",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/developer/config/forbide-ip/list",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "directlink blacklist list / update / switch"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 53,
+      "title": "获取直链离线日志",
+      "source_path": "api-source/API列表/直链/获取直链离线日志.md",
+      "source_sha256": "cdd813f2a895e729cef42aff23fe2b942e5558fb6074d981689c1a7e2bcf2c64",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/yz4bdynw9yx5erqb",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/direct-link/offline/logs",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "directlink offline-logs"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 54,
+      "title": "获取直链流量日志",
+      "source_path": "api-source/API列表/直链/获取直链流量日志.md",
+      "source_sha256": "054bd2d95e80a833f07320efc4c7ecb08f8ef1afaabbce6bdc70bc564601cc00",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/agmqpmu0dm0iogc9",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/direct-link/log",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "directlink traffic-logs"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 55,
+      "title": "启用直链空间",
+      "source_path": "api-source/API列表/直链/启用直链空间.md",
+      "source_sha256": "c1fb9a292253a3a545efff314e225fd0810b9c4cbf2ef51bd363641587dc2965",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/cl3gvdmho288d376",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/direct-link/enable",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "directlink enable / disable"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 56,
+      "title": "获取直链链接",
+      "source_path": "api-source/API列表/直链/获取直链链接.md",
+      "source_sha256": "b1bd70c7a81740dbcddb0ba33666ff78697b201a9a9497b5c5fb92e6ca514a5e",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/tdxfsmtemp4gu4o2",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/direct-link/url",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "directlink url"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 57,
+      "title": "禁用直链空间",
+      "source_path": "api-source/API列表/直链/禁用直链空间.md",
+      "source_sha256": "191393493898180031893f0e613de9698ac55f9fa0b1d9d0a6c4c43685ceab61",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ccgz6fwf25nd9psl",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/direct-link/disable",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "directlink enable / disable"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 58,
+      "title": "直链缓存刷新",
+      "source_path": "api-source/API列表/直链/直链缓存刷新.md",
+      "source_sha256": "5ccf96646ccc97b817e9d28b242f2c610a71180c0f74abf372b3fb718821766c",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ptgqvx45rtaxry5v",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/direct-link/cache/refresh",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "directlink cache-refresh"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 59,
+      "title": "💡上传流程说明",
+      "source_path": "api-source/API列表/图床/上传图片/💡上传流程说明.md",
+      "source_sha256": "ffd12584aff8d32c260d90c7742ab1776348708dd137c3a3235e7fe23546c838",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/di0url3qn13tk28t",
+      "kind": "workflow",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "image upload / upload-api create"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 60,
+      "title": "创建目录",
+      "source_path": "api-source/API列表/图床/上传图片/创建目录.md",
+      "source_sha256": "2f9b6253b39e1247d15f2a832d8b6a6d6366dd40fb79520fbde31c641a2cdfed",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/tpqqm04ocqwvonrk",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/oss/file/mkdir",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image mkdir"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 61,
+      "title": "创建文件",
+      "source_path": "api-source/API列表/图床/上传图片/创建文件.md",
+      "source_sha256": "a4887533449640011734f0ad70fd9f1f4de36d44f5cd16e83bbb7ae329bc126f",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/xwfka5kt6vtmgs8r",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/oss/file/create",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image upload / upload-api create"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 62,
+      "title": "获取上传地址&上传分片",
+      "source_path": "api-source/API列表/图床/上传图片/获取上传地址&上传分片.md",
+      "source_sha256": "244242fc222cf4cbf331d60c76a73ddc020468d7429fb71739008366023c22c6",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/pyfo3a39q6ac0ocd",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/oss/file/get_upload_url",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image upload-api get-url / put-slice"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 63,
+      "title": "上传完毕",
+      "source_path": "api-source/API列表/图床/上传图片/上传完毕.md",
+      "source_sha256": "1ba8d194d698b2865870f4ec09ce45c8f95b42eae87d6e28e9dbd3da4dfd8f53",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/yhgo0kt3nkngi8r2",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/oss/file/upload_complete",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image upload-api complete / async-result"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 64,
+      "title": "异步轮询获取上传结果",
+      "source_path": "api-source/API列表/图床/上传图片/异步轮询获取上传结果.md",
+      "source_sha256": "ee4144073eea18008073117d96ea8d13ea52292a7608ee98459f99cdc0bc455c",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/lbdq2cbyzfzayipu",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/upload/v1/oss/file/upload_async_result",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image upload-api complete / async-result"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 65,
+      "title": "创建复制任务",
+      "source_path": "api-source/API列表/图床/复制云盘图片/创建复制任务.md",
+      "source_sha256": "5c0b3f8376c8412ff52891a2108226603348936b7e38320340d47f44c2cc1863",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/trahy3lmds4o0i3r",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/oss/source/copy",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image source-copy"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 66,
+      "title": "获取复制任务详情",
+      "source_path": "api-source/API列表/图床/复制云盘图片/获取复制任务详情.md",
+      "source_sha256": "e726a740dbf0168c18144640c4456a974475f93041b71a7c795e89deea9e25f3",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/rissl4ewklaui4th",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/oss/source/copy/process",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image source-copy-progress / source-copy-failures"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 67,
+      "title": "获取复制失败文件列表",
+      "source_path": "api-source/API列表/图床/复制云盘图片/获取复制失败文件列表.md",
+      "source_sha256": "cb7ae0cd2b34e687953b186997bbecbe3fd5dd666d8b05f0bcb76eb4037c17eb",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/tlug9od3xlw2w23v",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/oss/source/copy/fail",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image source-copy-progress / source-copy-failures"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 68,
+      "title": "移动图片",
+      "source_path": "api-source/API列表/图床/移动图片.md",
+      "source_sha256": "28f8f4cb22db69f6758ce2a900876c083dea0c6505cfb228aabbb0cd017de643",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/eqeargimuvycddna",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/oss/file/move",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image move / delete"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 69,
+      "title": "删除图片",
+      "source_path": "api-source/API列表/图床/删除图片.md",
+      "source_sha256": "8de4646ab9eb36a6d94809550f036549311f54960cb2068b7b08a997a68da3f5",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ef8yluqdzm2yttdn",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/oss/file/delete",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image move / delete"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 70,
+      "title": "获取图片详情",
+      "source_path": "api-source/API列表/图床/获取图片信息/获取图片详情.md",
+      "source_sha256": "0a535a785c587f2883f7e222eab0f91df7fa16192738222d96985aa0438bba9f",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/rgf2ndfaxc2gugp8",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/oss/file/detail",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image info"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 71,
+      "title": "获取图片列表",
+      "source_path": "api-source/API列表/图床/获取图片信息/获取图片列表.md",
+      "source_sha256": "d648d08e04ca054a13612da54b6e6fb8df5ccce25712474ff127deed6a718a80",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/zayr72q8xd7gg4f8",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/oss/file/list",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image list"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 72,
+      "title": "创建离线迁移任务",
+      "source_path": "api-source/API列表/图床/图床离线迁移/创建离线迁移任务.md",
+      "source_sha256": "e7bc0b326f2015a8e80ab17ce8fa8dfbc5a1827b426e27460ee4585124984b00",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ctigc3a08lqzsfnq",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/oss/offline/download",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image offline-create / offline-progress"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 73,
+      "title": "获取离线迁移任务",
+      "source_path": "api-source/API列表/图床/图床离线迁移/获取离线迁移任务.md",
+      "source_sha256": "9cc27fd692746b7ddf1e19fbb5637008fdd716b9f8fa1f27bdc5cebabe0676d2",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/svo92desugbyhrgq",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/oss/offline/download/process",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "image offline-create / offline-progress"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 74,
+      "title": "上传流程",
+      "source_path": "api-source/API列表/视频转码/上传视频/本地上传/上传流程.md",
+      "source_sha256": "b44aa6720ee29804b9e4f6e025c512e94f2b7a8af1fe9b4ad72ce7abadca9f0b",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/kh4ovskpumzn8r07",
+      "kind": "workflow",
+      "method": null,
+      "path": null,
+      "target_kind": null,
+      "reference_sections": [
+        "transcode folder-info / upload / from-cloud"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 75,
+      "title": "获取云盘视频文件",
+      "source_path": "api-source/API列表/视频转码/上传视频/云盘上传/获取云盘视频文件.md",
+      "source_sha256": "ecd809b9aa9476f353c2a1dfecc3deded3c8fb078cb208ec39f29217e7169433",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/yqyi3rqrmrpvdf0d",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v2/file/list",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode source-list / folder-list"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 76,
+      "title": "从云盘空间上传",
+      "source_path": "api-source/API列表/视频转码/上传视频/云盘上传/从云盘空间上传.md",
+      "source_sha256": "a7f80973c9e33fb30b9b47aa92ef42c565df40f4153eadd173f14914b0fd1be8",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/tqy2xatoo4qmdbz7",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/transcode/upload/from_cloud_disk",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode folder-info / upload / from-cloud"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 77,
+      "title": "获取转码空间文件列表",
+      "source_path": "api-source/API列表/视频转码/获取视频信息/获取转码空间文件列表.md",
+      "source_sha256": "a8ed77dea52837e481a1f6aa46213b8cfe3420a68124d68e2b7e47713b0e6afe",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ux9wct58lvllxm1n",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v2/file/list",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode source-list / folder-list"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 78,
+      "title": "获取转码空间文件夹信息",
+      "source_path": "api-source/API列表/视频转码/获取视频信息/获取转码空间文件夹信息.md",
+      "source_sha256": "373b34e871c04d2ec5de73b9061870ecf8171ee64c946768fe678809b0a150f9",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/kaalgke88r9y7nlt",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/transcode/folder/info",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode folder-info / upload / from-cloud"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 79,
+      "title": "获取视频文件可转码的分辨率",
+      "source_path": "api-source/API列表/视频转码/获取视频信息/获取视频文件可转码的分辨率.md",
+      "source_sha256": "5340463118d949a0467bdc1096af8944bbcab89f84e4a62d5249f34e8a21811f",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/apzlsgyoggmqwl36",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/transcode/video/resolutions",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode resolutions"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 80,
+      "title": "视频转码列表（三方挂载应用授权使用）",
+      "source_path": "api-source/API列表/视频转码/获取视频信息/视频转码列表（三方挂载应用授权使用）.md",
+      "source_sha256": "891ecdb18b273024f646ea98da9f9e87753120fa3e23db06ffb3426e65c5f33b",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/tgg6g84gdrmyess5",
+      "kind": "api_spec",
+      "method": "GET",
+      "path": "/api/v1/video/transcode/list",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode list"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 81,
+      "title": "视频转码操作",
+      "source_path": "api-source/API列表/视频转码/视频转码/视频转码操作.md",
+      "source_sha256": "f8181e0a8350bb0d8884017844f358333f80792aa3019354325d061e2dd112e9",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/xy42nv2x8wav9n5l",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/transcode/video",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode run"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 82,
+      "title": "查询某个视频的转码记录",
+      "source_path": "api-source/API列表/视频转码/查询转码信息/查询某个视频的转码记录.md",
+      "source_sha256": "715d265d1302d5ab5fe2e8b701210c3a64f76d5cdda61f740660a9760e56cb4b",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/ost1m82sa9chh0mc",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/transcode/video/record",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode records"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 83,
+      "title": "查询某个视频的转码结果",
+      "source_path": "api-source/API列表/视频转码/查询转码信息/查询某个视频的转码结果.md",
+      "source_sha256": "1beb1533c2dd1894157f475622a7bd75502e44eb014744c40970687bc43c3d8e",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/iucbqgge0dgfc8sv",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/transcode/video/result",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode result"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 84,
+      "title": "删除转码视频",
+      "source_path": "api-source/API列表/视频转码/删除视频/删除转码视频.md",
+      "source_sha256": "8fb45a5744cb460b657b8486cc29edc0b7199d681acbaf3317045bde3fb88f9c",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/tg2xgotkgmgpulrp",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/transcode/delete",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode delete"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 85,
+      "title": "原文件下载",
+      "source_path": "api-source/API列表/视频转码/视频文件下载/原文件下载.md",
+      "source_sha256": "45f0bafad973655928ada2fc4173e5b82fecb120da903dc44556e2305726cc58",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/mlltlx57sty6g9gf",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/transcode/file/download",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode download-url / segment-url / all-download-urls"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 86,
+      "title": "单个转码文件下载（m3u8或ts）",
+      "source_path": "api-source/API列表/视频转码/视频文件下载/单个转码文件下载（m3u8或ts）.md",
+      "source_sha256": "ac7d0850892731829033a1af80a2716b3505d783b3015e5a2aeb7855dd26ae3c",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/yf97p60yyzb8mzbr",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/transcode/m3u8_ts/download",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode download-url / segment-url / all-download-urls"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    },
+    {
+      "manifest_index": 87,
+      "title": "某个视频全部转码文件下载",
+      "source_path": "api-source/API列表/视频转码/视频文件下载/某个视频全部转码文件下载.md",
+      "source_sha256": "131ad7d75d7b6d110b29ca640e667c05a7230ea6f7f69c754a6b1bf3bf834982",
+      "source_url": "https://123yunpan.yuque.com/org-wiki-123yunpan-muaork/cr6ced/yb7hrb0x2gym7xic",
+      "kind": "api_spec",
+      "method": "POST",
+      "path": "/api/v1/transcode/file/download/all",
+      "target_kind": "openapi",
+      "reference_sections": [
+        "transcode download-url / segment-url / all-download-urls"
+      ],
+      "documentation_status": "covered",
+      "implementation_status": "not_implemented",
+      "contract_test_status": "not_run",
+      "live_validation_status": "not_run"
+    }
+  ],
+  "connection_policy": {
+    "mode": "official_direct",
+    "openapi_base_url": "https://open-api.123pan.com",
+    "developer_token_endpoint": "/api/v1/access_token",
+    "business_headers": [
+      "Authorization: Bearer <official_access_token>",
+      "Platform: open_platform"
+    ],
+    "upload_target": "Official API returned servers or presignedURL",
+    "download_target": "Official API returned downloadUrl",
+    "self_hosted_gateway_enabled": false,
+    "stoken_enabled": false,
+    "appwrite_identity_enabled": false
+  }
+}
