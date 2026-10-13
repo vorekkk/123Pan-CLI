@@ -73,7 +73,7 @@ pan123 download --file-id 123456 --output './报告.pdf' --overwrite --yes --jso
 | 运行环境 | 独立 `.venv`，本机 macOS ARM64 / Python 3.14.7 |
 | HTTP / 配置 | HTTPX 0.28.1、python-dotenv 1.2.4；兼容范围见 pyproject，精确基线见 constraints |
 | 构建 | pyproject、pan123 入口、wheel 与 sdist；干净虚拟环境安装入口验证通过 |
-| Git / CI | GitHub 私有仓库 vorekkk/123Pan-CLI，分支 `feat/official-cli`；`.github/workflows/ci.yml` 的 12 个任务在 2026-10-14 全部通过（[运行 38486131516](https://github.com/vorekkk/123Pan-CLI/actions/runs/38486131516)），手动 ARM64 任务未触发 |
+| Git / CI | GitHub 私有仓库 vorekkk/123Pan-CLI，交付分支 `main`（开发期的 `feat/official-cli` 已快进合并并删除）；`.github/workflows/ci.yml` 的 12 个任务在 2026-10-14 全部通过（[运行 38486131516](https://github.com/vorekkk/123Pan-CLI/actions/runs/38486131516)），手动 ARM64 任务未触发 |
 | 真实业务 | 指定目录 33175809 通过：列表、详情、下载、32,789 B 单分片上传、20,971,528 B 两分片上传、秒传，以及底层 `upload-api v2` create/slice/complete 与重复分片拒绝；2026-10-14 两轮联调证据见[真实联调记录](./真实联调记录.md) |
 | 其余领域 | 已实现，模拟契约检查；未执行真实权益/第三方账号验证 |
 
