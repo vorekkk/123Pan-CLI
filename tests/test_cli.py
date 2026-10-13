@@ -237,6 +237,9 @@ def _run_cli(arguments, environment):
         [sys.executable, "-m", "pan123_cli", *arguments],
         capture_output=True,
         check=False,
+        # Windows CI keeps a console stdin even when stdout is a pipe, which
+        # would make the confirmation prompt interactive instead of scripted.
+        stdin=subprocess.DEVNULL,
         env={**os.environ, "PYTHONPATH": str(source), **environment},
     )
 
