@@ -237,8 +237,8 @@ def _run_cli(arguments, environment):
         [sys.executable, "-m", "pan123_cli", *arguments],
         capture_output=True,
         check=False,
-        # Windows CI keeps a console stdin even when stdout is a pipe, which
-        # would make the confirmation prompt interactive instead of scripted.
+        # Detach stdin so a runner console cannot turn the confirmation prompt
+        # into an interactive wait.
         stdin=subprocess.DEVNULL,
         env={**os.environ, "PYTHONPATH": str(source), **environment},
     )
@@ -246,11 +246,12 @@ def _run_cli(arguments, environment):
 
 def test_legacy_windows_encoding_cannot_break_help_or_json_output(tmp_path):
     # Windows pipes default to the ANSI code page; Chinese help text and JSON
-    # messages must still be written as UTF-8 instead of failing the command.
+    # messages must still reach them as UTF-8 instead of failing the command.
     legacy = {"PYTHONIOENCODING": "cp1252"}
     helped = _run_cli(["--help"], legacy)
     assert helped.returncode == 0, helped.stderr
     assert "云盘" in helped.stdout.decode("utf-8")
+    output = tmp_path / "out.bin"
     refused = _run_cli(
         [
             "file",
@@ -258,11 +259,16 @@ def test_legacy_windows_encoding_cannot_break_help_or_json_output(tmp_path):
             "--file-id",
             "1",
             "--output",
-            str(tmp_path / "out.bin"),
+            str(output),
             "--overwrite",
             "--json",
         ],
         legacy,
     )
+    # Windows reports a NUL stdin as a terminal, so the refusal wording differs
+    # there; the invariants are the exit code, the CJK message and no local write.
     assert refused.returncode == 2
-    assert "需要 --yes" in refused.stdout.decode("utf-8")
+    error = json.loads(refused.stdout.decode("utf-8"))["error"]
+    assert error["kind"] == "INVALID_ARGUMENT" and error["exit_code"] == 2
+    assert error["message"] and not error["message"].isascii()
+    assert not output.exists()
