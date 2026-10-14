@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
+import csv
 import json
 import os
+import re
 import stat
+import subprocess
 import tempfile
 from pathlib import Path
 from typing import Any, BinaryIO
@@ -43,6 +46,32 @@ def _private_directory(path: Path) -> None:
         raise Pan123Error("io", "Private storage must be a directory.")
 
 
+def restrict_windows_acl(path: Path) -> None:
+    """Remove inherited Windows permissions and grant only the current SID."""
+    if os.name != "nt":
+        return
+    system = Path(os.environ.get("SystemRoot", r"C:\Windows")) / "System32"
+    try:
+        identity = subprocess.run(
+            [str(system / "whoami.exe"), "/user", "/fo", "csv", "/nh"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        sid = next(csv.reader(identity.stdout.strip().splitlines()))[-1]
+        if not re.fullmatch(r"S-1-[0-9-]+", sid):
+            raise ValueError
+        subprocess.run(
+            [str(system / "icacls.exe"), str(path), "/inheritance:r", "/grant:r", f"*{sid}:(F)"],
+            check=True,
+            capture_output=True,
+        )
+    except (OSError, ValueError, StopIteration, subprocess.SubprocessError):
+        raise Pan123Error(
+            "LOCAL_IO", "Could not restrict Windows private storage permissions."
+        ) from None
+
+
 def write_private_json(path: Path, data: Any) -> None:
     """Write a 0600 sibling temporary file and replace the destination atomically."""
     path = Path(path)
@@ -65,6 +94,7 @@ def write_private_json(path: Path, data: Any) -> None:
             handle.write(encoded)
             handle.flush()
             os.fsync(handle.fileno())
+        restrict_windows_acl(temporary)
         if path.is_symlink():
             raise Pan123Error("io", "Private storage cannot use a symbolic link.")
         os.replace(temporary, path)

@@ -17,6 +17,7 @@ with zipfile.ZipFile(wheel) as archive:
         if name.startswith(("tests/", "docs/")) or Path(name).name.startswith(".env"):
             raise SystemExit("Development files or credentials found in wheel")
 with tempfile.TemporaryDirectory(prefix="pan123-wheel-") as temp:
+    temp = str(Path(temp).resolve())
     environment = Path(temp) / "venv"
     venv.create(environment, with_pip=True)
     bin_dir = environment / ("Scripts" if os.name == "nt" else "bin")
@@ -26,4 +27,10 @@ with tempfile.TemporaryDirectory(prefix="pan123-wheel-") as temp:
     subprocess.run([str(command), "--version"], cwd=temp, check=True)
     subprocess.run([str(command), "file", "upload", "--help"], cwd=temp, check=True)
     subprocess.run([str(python), "-m", "pan123_cli", "--help"], cwd=temp, check=True)
+    subprocess.run(
+        [str(command), "skill", "install", "--dest", str(Path(temp) / "skill"), "--json"],
+        cwd=temp,
+        check=True,
+    )
+    assert (Path(temp) / "skill" / "SKILL.md").is_file()
 print("Clean wheel installation and entry points verified.")

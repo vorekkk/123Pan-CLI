@@ -34,14 +34,31 @@ Windows 源码安装使用 `py -3 -m venv .venv`，前缀分别为 `.venv\Script
 
 ## 开始使用
 
-将 `.env.example` 复制为 `.env`，在本机填写 `PAN123_CLIENT_ID` / `PAN123_CLIENT_SECRET`。也兼容现有的 `CLIENT_ID` / `CLIENT_SECRET`；凭据文件不会进入 Git。CLI 只读取明确指定的 env-file。
+首次在交互终端运行业务命令时，CLI 会引导输入 `PAN123_CLIENT_ID` 和隐藏的 `PAN123_CLIENT_SECRET`，鉴权验证通过后保存到用户私有凭据文件，并安装 AI Skill。也可以主动运行：
 
 ```bash
-.venv/bin/pan123 --env-file .env auth ensure
-.venv/bin/pan123 --env-file .env file list --parent-id 0 --all --json
-.venv/bin/pan123 --env-file .env file upload --file './报告.pdf' --parent-id 123456
-.venv/bin/pan123 --env-file .env file download --file-id 123456 --output './报告副本.pdf'
+pan123 setup
+pan123 file list --parent-id 0 --all --json
+pan123 file upload --file './报告.pdf' --parent-id 123456
+pan123 file download --file-id 123456 --output './报告副本.pdf'
 ```
+
+环境变量或显式 `--env-file` 仍可覆盖保存的凭据。帮助、版本、`--json` 和非交互执行不会弹出向导；自动化任务预先配置环境变量。Secret 不写入普通 `config.json`。
+
+### AI Skill 与 npm
+
+CLI 首次交互运行会自动安装标准 `pan123-cli` Skill，检测 Codex、Claude Code、Cursor；多个目标时可多选。Skill 包含全部命令、API 字段映射和官方资料快照。也可独立安装：
+
+```bash
+npm i -g pan123-cli-skill
+npx pan123-cli-skill install --agent codex
+pan123 skill install --agent claude --agent cursor --scope project
+pan123 skill status --json
+```
+
+npm 包只安装 Skill，CLI 仍通过 uv/pipx 安装。npm 全局安装自动写入检测到工具的用户 Skill 目录，无工具时默认 Codex；本地 npm 依赖安装不自动写入。禁用安装脚本时运行 `pan123-skill install` 补装。
+
+`--dest` 指定完整 Skill 目录；`--force` 备份后处理冲突。支持 `install`、`status`、`uninstall`，检测用户修改并保护内容。标准 GitHub Skill 源为 `skills/pan123-cli`。详细说明见 [Skill 配置与安装](./skills/pan123-cli/references/configuration.md)。
 
 示例 ID 需换为自己的目录或文件 ID。`list`、`upload`、`download` 是根命令别名；所有帮助页面均可离线查看。变更命令按帮助要求确认或使用 `--yes`。stdout JSON 便于脚本消费，进度写入 stderr，下载在大小与 MD5 校验通过后才发布正式文件。
 

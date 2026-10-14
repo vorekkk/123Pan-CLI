@@ -15,7 +15,7 @@ from typing import Any
 from dotenv import dotenv_values
 from platformdirs import user_cache_dir, user_config_dir
 
-from .cache import owner_uid
+from .cache import owner_uid, read_private_json
 from .errors import Pan123Error
 
 APP_NAME = "123pan-cli"
@@ -58,6 +58,24 @@ class Settings:
         else:
             components = ("developer", self.client_id or "", self.client_secret or "")
         return hashlib.sha256("\0".join(components).encode("utf-8")).hexdigest()
+
+
+def credentials_path() -> Path:
+    return Path(user_config_dir(APP_NAME, appauthor=False)) / "credentials.json"
+
+
+def _credentials() -> dict[str, Any]:
+    path = credentials_path()
+    if not path.exists() and not path.is_symlink():
+        return {}
+    data = read_private_json(path)
+    if (
+        not isinstance(data, dict)
+        or set(data) != {"schema_version", "client_id", "client_secret"}
+        or data["schema_version"] != 1
+    ):
+        raise _fail("私有凭据格式无效；请运行 pan123 setup。")
+    return {key: data[key] for key in ("client_id", "client_secret")}
 
 
 def _fail(message: str) -> Pan123Error:
@@ -132,7 +150,8 @@ def load_settings(
         if selected_config
         else Path(user_config_dir(APP_NAME, appauthor=False)) / "config.json"
     )
-    values = _load_json(config_path, required=selected_config is not None)
+    values = _credentials()
+    values.update(_load_json(config_path, required=selected_config is not None))
     selected_env = normalized.get("env_file")
     if selected_env is not None:
         env_path = Path(selected_env).expanduser()

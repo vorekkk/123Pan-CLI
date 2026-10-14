@@ -50,7 +50,10 @@ def _utc_date(value: Any) -> datetime | None:
 
 def _required(value: Any, description: str) -> str:
     if not isinstance(value, str) or not value.strip() or any(ord(char) < 32 for char in value):
-        raise Pan123Error("AUTH_REQUIRED", f"{description} is required.")
+        raise Pan123Error(
+            "AUTH_REQUIRED",
+            f"{description} is required. 请运行 pan123 setup 或设置 PAN123 环境变量。",
+        )
     return value
 
 

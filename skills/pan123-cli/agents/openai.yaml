@@ -1,0 +1,4 @@
+interface:
+  display_name: "123 云盘 CLI"
+  short_description: "使用 pan123 管理云盘文件、传输、分享及官方 API"
+  default_prompt: "使用 $pan123-cli 完成我的 123 云盘任务，并验证操作结果。"

@@ -196,6 +196,14 @@ def build_parser():
     parser.add_argument("--file-id", type=int, required=True)
     parser.add_argument("--output")
     parser.add_argument("--overwrite", action="store_true")
+    node(("setup",)).set_defaults(command=("setup",))
+    for action in ("install", "status", "uninstall"):
+        parser = node(("skill", action))
+        parser.set_defaults(command=("skill", action))
+        parser.add_argument("--agent", action="append", choices=["codex", "claude", "cursor"])
+        parser.add_argument("--scope", choices=["user", "project"], default="user")
+        parser.add_argument("--dest", help="完整 Skill 目标目录（包含 pan123-cli 文件夹）")
+        parser.add_argument("--force", action="store_true", help="备份已存在内容后更新或卸载")
     return root
 
 
@@ -521,10 +529,21 @@ def main(argv: Sequence[str] | None = None) -> int:
                 args.insert(index, "file")
             break
     try:
+        from .onboarding import interactive, prepare
+
+        if not args and interactive({}):
+            settings = load_settings({})
+            args = (
+                ["setup"]
+                if settings.auth_mode == "developer"
+                and (not settings.client_id or not settings.client_secret)
+                else ["--help"]
+            )
         parser = build_parser()
         options = vars(parser.parse_args(args))
         command = tuple(options["command"])
-        data = execute(options)
+        local_result = prepare(options)
+        data = local_result if local_result is not None else execute(options)
         emit(
             {"ok": True, "schema_version": 1, "command": " ".join(command), "data": data},
             json_mode=json_mode,

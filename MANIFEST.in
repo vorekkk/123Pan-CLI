@@ -1,3 +1,6 @@
 include constraints-runtime.txt constraints-dev.txt .env.example
 recursive-include docs *.md *.json
 recursive-include scripts *.py
+include setup.py package.json
+recursive-include skills *.md *.json *.yaml
+recursive-include npm *.mjs

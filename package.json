@@ -1,0 +1,16 @@
+{
+  "name": "pan123-cli-skill",
+  "version": "0.1.0",
+  "description": "123Pan CLI Agent Skill with installers for Codex, Claude Code and Cursor",
+  "type": "module",
+  "license": "MIT",
+  "author": "vorek",
+  "repository": {"type": "git", "url": "git+https://github.com/vorekkk/123Pan-CLI.git"},
+  "homepage": "https://github.com/vorekkk/123Pan-CLI",
+  "bugs": {"url": "https://github.com/vorekkk/123Pan-CLI/issues"},
+  "engines": {"node": ">=18"},
+  "bin": {"pan123-skill": "npm/cli.mjs", "pan123-cli-skill": "npm/cli.mjs"},
+  "files": ["skills/pan123-cli/", "npm/cli.mjs", "npm/installer.mjs", "npm/postinstall.mjs", "README.md", "LICENSE"],
+  "scripts": {"postinstall": "node npm/postinstall.mjs", "test": "node --test npm/*.test.mjs"},
+  "keywords": ["123pan", "agent-skills", "codex", "claude-code", "cursor", "cli"]
+}
