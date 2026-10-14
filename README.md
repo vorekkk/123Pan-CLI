@@ -6,7 +6,14 @@
 
 ## 安装
 
-私有仓库需要有访问权限的 GitHub 账号：
+仓库公开。推荐用 `uv` 或 `pipx` 一行安装：它自动建立隔离环境，并把 `pan123` 放进 PATH，不需要克隆或手动建虚拟环境。
+
+```bash
+uv tool install git+https://github.com/vorekkk/123Pan-CLI.git
+pan123 --help
+```
+
+`pipx install git+https://github.com/vorekkk/123Pan-CLI.git` 等价可用。若偏好源码目录，也可以克隆后用虚拟环境安装：
 
 ```bash
 git clone https://github.com/vorekkk/123Pan-CLI.git
@@ -16,7 +23,7 @@ python3 -m venv .venv
 .venv/bin/pan123 --help
 ```
 
-Windows 使用 `py -3 -m venv .venv`，安装和运行命令的前缀分别为 `.venv\Scripts\python.exe` 与 `.venv\Scripts\pan123.exe`。详细的 PowerShell、cmd、pipx、wheel 用法见[安装与使用](./docs/安装与使用.md)。此版本是 Python 包，未提供无需 Python 的独立可执行程序。
+Windows 源码安装使用 `py -3 -m venv .venv`，前缀分别为 `.venv\Scripts\python.exe` 与 `.venv\Scripts\pan123.exe`。详细的 PowerShell、cmd、pipx、wheel 用法见[安装与使用](./docs/安装与使用.md)。此版本是 Python 包，未提供无需 Python 的独立可执行程序；也尚未发布到 PyPI，因此安装命令需要带 `git+` 地址。
 
 ## 开始使用
 

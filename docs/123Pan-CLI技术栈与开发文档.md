@@ -73,7 +73,7 @@ pan123 download --file-id 123456 --output './报告.pdf' --overwrite --yes --jso
 | 运行环境 | 独立 `.venv`，本机 macOS ARM64 / Python 3.14.7 |
 | HTTP / 配置 | HTTPX 0.28.1、python-dotenv 1.2.4；兼容范围见 pyproject，精确基线见 constraints |
 | 构建 | pyproject、pan123 入口、wheel 与 sdist；干净虚拟环境安装入口验证通过 |
-| Git / CI | GitHub 私有仓库 vorekkk/123Pan-CLI，交付分支 `main`（开发期的 `feat/official-cli` 已快进合并并删除）；`.github/workflows/ci.yml` 的 12 个任务在 2026-10-14 全部通过（[运行 38486131516](https://github.com/vorekkk/123Pan-CLI/actions/runs/38486131516)），手动 ARM64 任务未触发 |
+| Git / CI | GitHub 公开仓库 vorekkk/123Pan-CLI，交付分支 `main`（开发期的 `feat/official-cli` 已快进合并并删除）；`.github/workflows/ci.yml` 的 12 个任务在 2026-10-14 全部通过（[运行 38486131516](https://github.com/vorekkk/123Pan-CLI/actions/runs/38486131516)），手动 ARM64 任务未触发 |
 | 真实业务 | 指定目录 33175809 通过：列表、详情、下载、32,789 B 单分片上传、20,971,528 B 两分片上传、秒传，以及底层 `upload-api v2` create/slice/complete 与重复分片拒绝；2026-10-14 两轮联调证据见[真实联调记录](./真实联调记录.md) |
 | 其余领域 | 已实现，模拟契约检查；未执行真实权益/第三方账号验证 |
 
@@ -754,7 +754,7 @@ Windows 同一流程用 `.venv\Scripts\python.exe`。测试仅从独立工程运
 
 构建后在干净环境安装 wheel，测试 `pan123 --help`、`python -m pan123_cli --help`，检查 wheel 内容不含凭据和缓存。发布版本与 JSON schema 分别管理；新增可选字段可以兼容增加，重命名或删除输出字段需要升级 schema 或保持别名。
 
-采用 Ruff 执行 lint / format 检查，规则配置见 [Ruff 文档](https://docs.astral.sh/ruff/)。独立 Git 与 GitHub 私有仓库已建立，主分支为 main；CI 已配置自动四系统 × 三 Python 版本矩阵，以及手动 Linux / Windows ARM64 矩阵。2026-10-14 的 12 个自动任务全部通过；该轮同时暴露并修复了两个 Windows 专属缺陷（`os.getuid` / `os.fchmod` 的平台类型存根，以及 ANSI 代码页下中文输出的 `UnicodeEncodeError`），细节见实施进度。公开包发布前核查名字、许可与账号权限；当前交付源码、wheel / sdist 构建能力与本机产物，未发布公共 PyPI 包。
+采用 Ruff 执行 lint / format 检查，规则配置见 [Ruff 文档](https://docs.astral.sh/ruff/)。独立 Git 与 GitHub 公开仓库已建立，主分支为 main；CI 已配置自动四系统 × 三 Python 版本矩阵，以及手动 Linux / Windows ARM64 矩阵。2026-10-14 的 12 个自动任务全部通过；该轮同时暴露并修复了两个 Windows 专属缺陷（`os.getuid` / `os.fchmod` 的平台类型存根，以及 ANSI 代码页下中文输出的 `UnicodeEncodeError`），细节见实施进度。仓库公开后，`uv tool install git+https://github.com/vorekkk/123Pan-CLI.git` 与 `pipx install` 同一地址都是一行安装；仍未发布公共 PyPI 包，发布前需核查名字、许可与账号权限。当前交付源码、wheel / sdist 构建能力与本机产物。
 
 ## 17. 证据、判断与开发路径
 
