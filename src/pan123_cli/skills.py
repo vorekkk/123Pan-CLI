@@ -93,6 +93,8 @@ def install_lock(path: Path) -> Iterator[None]:
         raise Pan123Error(
             "FILE_CONFLICT", "另一个 Skill 安装正在进行；确认无安装进程后清理 " + str(lock)
         ) from None
+    except OSError:
+        raise Pan123Error("LOCAL_IO", "无法写入 Skill 目标目录；请检查权限：" + str(path)) from None
     try:
         yield
     finally:
@@ -112,7 +114,12 @@ def manage(action: str, options: dict[str, Any]) -> dict[str, Any]:
         if action == "status":
             results.append({"agent": agent, "path": str(path), "status": status(path)})
             continue
-        path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+        except OSError:
+            raise Pan123Error(
+                "LOCAL_IO", "无法创建 Skill 目标目录；请检查权限：" + str(path)
+            ) from None
         with install_lock(path):
             state = status(path)
             force = options.get("force", False)

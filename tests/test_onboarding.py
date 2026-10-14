@@ -199,3 +199,18 @@ def test_oauth_command_never_requests_developer_credentials(tmp_path, monkeypatc
     monkeypatch.setattr(onboarding, "setup", lambda _: pytest.fail("developer setup for OAuth"))
     monkeypatch.setattr("pan123_cli.skills.status", lambda _: "managed")
     onboarding.prepare({"command": ("oauth", "authorize-url")})
+
+
+def test_skill_permission_error_names_target(tmp_path, monkeypatch):
+    from pan123_cli.skills import manage
+
+    original = __import__("pathlib").Path.mkdir
+
+    def blocked(path, *args, **kwargs):
+        if path.name.endswith("install-lock"):
+            raise PermissionError("denied")
+        return original(path, *args, **kwargs)
+
+    monkeypatch.setattr("pathlib.Path.mkdir", blocked)
+    with pytest.raises(Pan123Error, match="blocked"):
+        manage("install", {"dest": str(tmp_path / "blocked")})

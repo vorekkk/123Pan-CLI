@@ -33,7 +33,10 @@ with tempfile.TemporaryDirectory(prefix="pan123-skill-release-") as directory:
     temp = Path(directory).resolve()
     packed = json.loads(
         subprocess.check_output(
-            [NPM, "pack", "--json", "--pack-destination", str(temp)], cwd=ROOT, text=True
+            [NPM, "pack", "--json", "--pack-destination", str(temp)],
+            cwd=ROOT,
+            text=True,
+            encoding="utf-8",
         )
     )[0]
     import tarfile
@@ -87,7 +90,11 @@ with tempfile.TemporaryDirectory(prefix="pan123-skill-release-") as directory:
     manage("install", {"dest": str(target)})
     outcome = json.loads(
         subprocess.check_output(
-            ["node", str(entry), "install", "--dest", str(target)], env=env, cwd=temp, text=True
+            ["node", str(entry), "install", "--dest", str(target)],
+            env=env,
+            cwd=temp,
+            text=True,
+            encoding="utf-8",
         )
     )
     assert outcome["data"]["results"][0]["status"] == "unchanged"
