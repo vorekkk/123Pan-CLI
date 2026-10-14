@@ -8,6 +8,23 @@ version = "0.1.0"
 description = "Cross-platform CLI for the official 123Pan OpenAPI"
 readme = "README.md"
 requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "vorek", email = "vorek000@163.com" }]
+keywords = ["123pan", "cloud-drive", "cli", "openapi", "file-transfer"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
+  "Operating System :: MacOS",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Utilities",
+]
 dependencies = [
   "httpx>=0.28.1,<0.29",
   "rich>=13.9,<15",
@@ -23,7 +40,10 @@ dev = ["pytest>=8,<10", "ruff>=0.9", "mypy>=1.13", "build>=1.2"]
 pan123 = "pan123_cli.cli:main"
 
 [project.urls]
+Homepage = "https://github.com/vorekkk/123Pan-CLI"
 Repository = "https://github.com/vorekkk/123Pan-CLI"
+Documentation = "https://github.com/vorekkk/123Pan-CLI/tree/main/docs"
+Issues = "https://github.com/vorekkk/123Pan-CLI/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

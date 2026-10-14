@@ -6,14 +6,21 @@
 
 ## 安装
 
-仓库公开。推荐用 `uv` 或 `pipx` 一行安装：它自动建立隔离环境，并把 `pan123` 放进 PATH，不需要克隆或手动建虚拟环境。
+仓库公开。`uv` / `pipx` 的安装命令会自动建立隔离环境，并把 `pan123` 放进 PATH，不需要克隆或手动建虚拟环境：
+
+```bash
+uv tool install pan123-cli          # PyPI 首发后可用
+pipx install pan123-cli             # 同上
+```
+
+在 PyPI 首发之前，把包名换成仓库地址即可，效果相同：
 
 ```bash
 uv tool install git+https://github.com/vorekkk/123Pan-CLI.git
 pan123 --help
 ```
 
-`pipx install git+https://github.com/vorekkk/123Pan-CLI.git` 等价可用。若偏好源码目录，也可以克隆后用虚拟环境安装：
+`pipx install git+https://github.com/vorekkk/123Pan-CLI.git` 等价可用；发布流程见[发布到 PyPI](./docs/发布.md)。若偏好源码目录，也可以克隆后用虚拟环境安装：
 
 ```bash
 git clone https://github.com/vorekkk/123Pan-CLI.git
@@ -45,6 +52,7 @@ Windows 源码安装使用 `py -3 -m venv .venv`，前缀分别为 `.venv\Script
 ## 文档
 
 - [安装与使用](./docs/安装与使用.md)：所有平台安装、配置和常用命令。
+- [发布到 PyPI](./docs/发布.md)：Trusted Publishing 配置、发版步骤、dry run 与回滚规则。
 - [完整 CLI 命令参考](./docs/CLI完整命令参考.md)：各业务域的输入、API 字段与约束；运行参数以 `--help` 为准。
 - [技术栈与开发文档](./docs/123Pan-CLI技术栈与开发文档.md)：模块、鉴权、传输、测试与发布。
 - [API 覆盖清单](./docs/API覆盖清单.json)：87 篇资料、74 篇接口文档、72 个独立接口的实现与验证状态。

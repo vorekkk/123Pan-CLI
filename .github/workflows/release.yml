@@ -1,0 +1,63 @@
+name: Release
+
+# Publishing uses PyPI Trusted Publishing (OIDC), so no API token is stored in
+# the repository. Configure a pending publisher for this repository, workflow
+# file and environment before pushing the first tag; see docs/发布.md.
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Build and verify only, without uploading to PyPI
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m pytest -q
+      - run: python -m ruff check src tests scripts
+      - run: python -m ruff format --check src tests
+      - run: python -m mypy src/pan123_cli
+      - run: python -m build
+      - run: python scripts/check_wheel.py
+      - name: Verify tag, metadata and artifact contents
+        run: python scripts/check_release.py --tag "${{ github.ref_type == 'tag' && github.ref_name || '' }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: distributions
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    needs: verify
+    if: github.ref_type == 'tag' && inputs.dry_run != true
+    runs-on: ubuntu-24.04
+    environment:
+      name: pypi
+      url: https://pypi.org/p/pan123-cli
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: distributions
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
